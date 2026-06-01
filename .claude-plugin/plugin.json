@@ -1,0 +1,22 @@
+{
+  "name": "knowledge-ops",
+  "version": "0.1.0",
+  "description": "Horizontal, cross-company operations layer for founders and COO-shaped operators. Builds and maintains a canonical data room from founder-os outputs (dataroom-ops), packages it for any third party under scrutiny - investors, due diligence, board, audit (diligence-ops), and keeps the underlying files and workspaces organized across companies (knowledge-custodian). Swiss venture context, stage-adaptive (seed to M&A).",
+  "author": {
+    "name": "Aron Clementi"
+  },
+  "homepage": "https://github.com/Mr-Hodler/Knowledge-Ops",
+  "repository": "https://github.com/Mr-Hodler/Knowledge-Ops",
+  "license": "MIT",
+  "keywords": [
+    "data-room",
+    "due-diligence",
+    "fundraising",
+    "board-reporting",
+    "knowledge-management",
+    "file-organization",
+    "operations",
+    "coo",
+    "notion"
+  ]
+}
