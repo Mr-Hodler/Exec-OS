@@ -9,6 +9,8 @@ All notable changes to Knowledge-Ops are documented here. The format is based on
 - `.knowledge-ops-config.yml` template: the single source of truth every skill reads first (platforms, linked Founder-OS repos, dataroom canonical structure, diligence stage profiles and sensitivity tiers, knowledge-custodian sandbox safety).
 - Plugin packaging: `.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json` bundling all three skills as one plugin.
 - Skill directories scaffolded: `dataroom-ops`, `diligence-ops`, `knowledge-custodian`.
+- **dataroom-ops** skill (the library): `SKILL.md` with three modes (Bootstrap, Sync, Audit) and references for the canonical structure, sync protocol, audit protocol, and config/handoff. Packaged as `dataroom-ops.skill`.
+- **diligence-ops** skill (the delivery counter): `SKILL.md` with four modes (Fundraise Data Room Prep, Due Diligence Support, Board and Investor Reporting, Audit Prep) and references for built-in Swiss stage checklists, packaging and access control, Q&A and evidence, reporting, and config/handoff. Packaged as `diligence-ops.skill`.
 
 ### Design decisions
 - Three-skill decomposition by job/trigger/audience: dataroom-ops (library, internal), diligence-ops (delivery counter, external), knowledge-custodian (substrate, internal).
