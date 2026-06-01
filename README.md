@@ -20,6 +20,8 @@ Three skills, split by job, trigger, and audience rather than by topic.
 
 The handoff is clean: **dataroom-ops** produces the canonical corpus, **diligence-ops** consumes it and curates examiner-facing packages, and **knowledge-custodian** organizes the raw substrate beneath both. None of them duplicate Founder-OS, which owns the strategy artifacts and the metrics dashboard that feed board packs and the data room.
 
+**Status:** dataroom-ops and diligence-ops are built and packaged. knowledge-custodian is scaffolded and ships next, advice-only in v1.0.
+
 ### dataroom-ops (the library)
 
 Modes: **Bootstrap** (lay down the canonical folder/page structure on your chosen platform), **Sync** (pick up deliverables from linked Founder-OS repos and stamp them with metadata: audience, lens, version, source skill, sensitivity), **Audit** (gap detection, stale files, version conflicts, near-duplicates).
@@ -28,7 +30,7 @@ Modes: **Bootstrap** (lay down the canonical folder/page structure on your chose
 
 Modes by audience: **Fundraise Data Room Prep** (stage checklists, sensitivity tagging, missing items), **Due Diligence Support** (legal / financial / tech / commercial DD questionnaires, Q&A tracker, evidence assembly, access log), **Board & Investor Reporting** (board packs, investor letters, recurring cadence), **Audit Prep** (evidence assembly for financial, security, and compliance audits: ISO, SOC 2, GDPR). Calibrated on Swiss venture standards (SICTIC, Innosuisse) and M&A-grade acquisition lists.
 
-### knowledge-custodian (the substrate)
+### knowledge-custodian (the substrate) - planned, v1.0
 
 Modes: **Scan** (read-only inventory of structure and metadata), **Advise** (a report of suggested consolidations, orphan files, naming violations, duplicates, stale files, with zero filesystem changes), **Standardize** (derive "Aron's File Organization Standard" from how you already organize, plus best practice), **Onboarding** (set up a compliant structure for a new company). **Execute** (safe batch moves) is deferred to v1.1. The skill **never deletes**: it moves to a timestamped `_archive/`, snapshots state before any action, keeps an undo log, and never touches the blacklist.
 
@@ -60,25 +62,25 @@ Knowledge-Ops-Repo/                      # repo root = the plugin AND the market
 ├── CONTRIBUTING.md
 ├── LICENSE                              # MIT
 ├── .gitignore
-├── skills/
-│   ├── dataroom-ops/
-│   │   ├── SKILL.md
-│   │   └── references/
-│   ├── diligence-ops/
-│   │   ├── SKILL.md
-│   │   └── references/
-│   └── knowledge-custodian/
-│       ├── SKILL.md
-│       └── references/
-└── skills/                              # packaged .skill zips are added at release
-    ├── dataroom-ops.skill
+└── skills/
+    ├── dataroom-ops/                    # built
+    │   ├── SKILL.md
+    │   └── references/                  # canonical-structure, sync-protocol, audit-protocol, config-and-handoff
+    ├── dataroom-ops.skill               # packaged for one-click install
+    ├── diligence-ops/                   # built
+    │   ├── SKILL.md
+    │   └── references/                  # checklists, packaging-and-access, qa-and-evidence, reporting, config-and-handoff
     ├── diligence-ops.skill
-    └── knowledge-custodian.skill
+    └── knowledge-custodian/             # planned (v1.0, advice-only)
+        ├── SKILL.md
+        └── references/
 ```
+
+Each skill's `.skill` file is the packaged zip (SKILL.md plus references), sitting alongside its source folder in `skills/` for one-click install.
 
 ## Setup
 
-See [SETUP.md](SETUP.md). In short: connect the platform where your data room lives (Notion by default), point `.knowledge-ops-config.yml` at your linked Founder-OS repos and your `knowledge_custodian.scope_paths`, then run a skill. The config file is read first by every skill.
+See [SETUP.md](SETUP.md). In short: connect the platform where your data room lives (platform-agnostic: Notion, Google Drive, SharePoint, or Confluence, set in `dataroom.platform`), point `.knowledge-ops-config.yml` at your linked Founder-OS repos and your `knowledge_custodian.scope_paths`, then run a skill. The config file is read first by every skill.
 
 ## Install
 
