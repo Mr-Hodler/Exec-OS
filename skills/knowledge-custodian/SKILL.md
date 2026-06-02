@@ -81,7 +81,7 @@ The same advice categories apply across providers; the mechanics of reading diff
 | **Advise** | yes | "advise on cleanup", "what is messy", "find duplicates / orphans / stale" | A prioritized report of suggested fixes plus a replayable dry-run action plan. Zero filesystem changes. |
 | **Standardize** | yes | "derive my file organization standard", "how should I organize" | Infers a portable file-organization standard from how you already organize well, plus best practice. Writes a standard document. |
 | **Onboarding** | yes | "set up the folder structure for a new company" | Scaffolds a compliant structure for a new, empty target, applying the standard. Creates only new folders; never touches existing files. |
-| **Architect** | yes | "how should we structure our company information", "map our information architecture", "what does our structure say about our team" | Reads the information topology and organizational signals, infers the implicit functional and team structure, recommends the target information architecture, and flags operations/performance frictions. Read-only; hands people and team-scaling questions to the future HR/Org skill. |
+| **Architect** | yes | "how should we structure our company information", "map our information architecture", "what does our structure say about our team" | Reads the information topology and organizational signals, infers the implicit functional and team structure, recommends the target information architecture, and flags operations/performance frictions. Read-only; hands people and team-scaling questions to the functional-hr-ops skill. |
 | **Execute** | v1.1 | "apply the cleanup", "do the moves" | Performs the Advise action plan as batch moves, under every safeguard. Deferred. |
 
 If asked to "clean up" in v1.0, run Scan then Advise, and explain that applying the plan is Execute mode (v1.1). Never silently change files.
@@ -136,8 +136,8 @@ Read-only. Treats the information architecture as a mirror of the company's real
 2. **Infer the implicit functional map.** From the topology, reconstruct the company's de facto functional areas, product lines, and team boundaries, and how they actually collaborate (not the org chart they claim, the one their files reveal).
 3. **Recommend the target information architecture.** Propose how information should be structured to mirror that reality: top-level by company, then by functional area / product / team as the evidence warrants, with shared spaces where collaboration is dense and clear ownership where it is missing. Align it to the file-organization standard and note where the standard should evolve.
 4. **Flag operations and performance frictions** visible in the topology: silos (a team or function with no shared space), cross-team duplication (the same artifact maintained in three places), ownerless or orphaned areas, single-person bottlenecks (key knowledge held by one person), access mismatches (sensitive material too open, or needed material locked away), and structure that fights how the team actually works.
-5. **Hand off people and scaling questions.** Architect owns information architecture, not org design. Where the evidence points to team-structure or hiring implications (a function carrying too much, a missing role, a team that should split), surface it as evidence and route the decision to the future HR/Org skill. Do not prescribe team or people changes here.
-6. **Deliver** an inferred functional map, the target IA recommendation, the friction list (prioritized), and the explicit handoff notes for HR/Org. Optionally render a visual map if `preferences.visual_artifact` allows.
+5. **Hand off people and scaling questions.** Architect owns information architecture, not org design. Where the evidence points to team-structure or hiring implications (a function carrying too much, a missing role, a team that should split), surface it as evidence and route the decision to the functional-hr-ops skill. Do not prescribe team or people changes here.
+6. **Deliver** an inferred functional map, the target IA recommendation, the friction list (prioritized), and the explicit handoff notes for functional-hr-ops. Optionally render a visual map if `preferences.visual_artifact` allows.
 
 ---
 
@@ -147,7 +147,7 @@ Read-only. Treats the information architecture as a mirror of the company's real
 - **Do not move or delete existing files in v1.0.** That is Execute mode (v1.1), and deletion is never on the table.
 - **Do not touch the blacklist, ever.**
 - **Do not produce content** (decks, financials, strategy). That is Founder-OS.
-- **Do not make team, people, or org-design decisions.** Architect infers the functional map and flags frictions from the information topology, then hands the people and team-scaling decisions to the future HR/Org skill. It recommends information architecture, not headcount or org structure.
+- **Do not make team, people, or org-design decisions.** Architect infers the functional map and flags frictions from the information topology, then hands the people and team-scaling decisions to the functional-hr-ops skill. It recommends information architecture, not headcount or org structure.
 
 ---
 
@@ -156,8 +156,8 @@ Read-only. Treats the information architecture as a mirror of the company's real
 - **Beneath dataroom-ops and diligence-ops.** A clean substrate makes Sync classification reliable. If dataroom-ops reports a chaotic source, that is a cue to run a knowledge-custodian Scan plus Advise on it.
 - **Onboarding vs dataroom-ops Bootstrap.** Onboarding sets up a company's general working structure; Bootstrap sets up its data room specifically. Onboarding leaves room for Bootstrap rather than recreating the data room folders.
 - **The standard is shared.** `File-Organization-Standard.md` is the cross-company convention that keeps every new company consistent from day one.
-- **Bidirectional with hr-org.** Architect produces the inferred de-facto functional map and friction list (evidence out to hr-org). In return, hr-org produces `Organization-Model.md` (the target team/org structure), which knowledge-custodian reads (`hr_org.organization_model_path`) to place files and shape information architecture: Architect mirrors it, Standardize makes the company variant org-aware from it, Onboarding scaffolds from it. The Organization Model takes precedence over the purely inferred map; when they diverge, flag the drift back to hr-org. No overlap: hr-org owns team architecture, knowledge-custodian owns information architecture.
-- **Governance and IAM seam.** When a Google Workspace Admin (or Cloud Identity / directory) connector exists, Architect may read groups, org units, and access policies as read-only signals, but routes the decisions: groups and org units to `hr-org`, security and access policies to `compliance-ops` / `diligence-ops`, and identity/access management proper to a future `security-ops`. knowledge-custodian never manages identities, groups, or policies. See `references/information-architecture.md`.
+- **Bidirectional with functional-hr-ops.** Architect produces the inferred de-facto functional map and friction list (evidence out to functional-hr-ops). In return, functional-hr-ops produces `Organization-Model.md` (the target team/org structure), which knowledge-custodian reads (`functional_hr_ops.organization_model_path`) to place files and shape information architecture: Architect mirrors it, Standardize makes the company variant org-aware from it, Onboarding scaffolds from it. The Organization Model takes precedence over the purely inferred map; when they diverge, flag the drift back to functional-hr-ops. No overlap: functional-hr-ops owns team architecture, knowledge-custodian owns information architecture.
+- **Governance and IAM seam.** When a Google Workspace Admin (or Cloud Identity / directory) connector exists, Architect may read groups, org units, and access policies as read-only signals, but routes the decisions: groups and org units to `functional-hr-ops`, security and access policies to `compliance-ops` / `diligence-ops`, and identity/access management proper to a future `security-ops`. knowledge-custodian never manages identities, groups, or policies. See `references/information-architecture.md`.
 
 ---
 
@@ -167,7 +167,7 @@ Read-only. Treats the information architecture as a mirror of the company's real
 - Scan changed nothing. Advise changed nothing and produced both a human report and a replayable dry-run plan.
 - Duplicate claims are backed by content hashes; near-duplicates are flagged, not merged.
 - Onboarding created only new folders in an empty target and touched no existing file.
-- Architect stayed read-only: it inferred the functional map and IA recommendation from real signals, flagged frictions, and routed people/scaling decisions to HR/Org rather than prescribing them.
+- Architect stayed read-only: it inferred the functional map and IA recommendation from real signals, flagged frictions, and routed people/scaling decisions to functional-hr-ops rather than prescribing them.
 - No deletion anywhere, in any mode. No em dashes. No bare URLs. Unreachable scope reported.
 
 ---
@@ -177,6 +177,6 @@ Read-only. Treats the information architecture as a mirror of the company's real
 - `references/safeguards.md` - the mandatory safety model: never delete, archive, snapshot, undo log, confirmation thresholds, blacklist, and the v1.1 Execute contract.
 - `references/scan-and-providers.md` - the provider model (local, Drive, Workspace, Notion), what Scan reads, hybrid duplicate detection, and the organizational-signals pass.
 - `references/advise-protocol.md` - advice categories, prioritization, the human report and the replayable action-plan schema.
-- `references/information-architecture.md` - the Architect method: organizational signals, inferring the functional map, recommending the target IA, the friction taxonomy, and the handoff to the future HR/Org skill.
+- `references/information-architecture.md` - the Architect method: organizational signals, inferring the functional map, recommending the target IA, the friction taxonomy, and the handoff to the functional-hr-ops skill.
 - `references/standard-and-onboarding.md` - deriving the file-organization standard, the standard document format, applying it in Onboarding.
 - `references/config-and-handoff.md` - reading config and safety boundaries, graceful degradation, handoff to dataroom-ops and diligence-ops.

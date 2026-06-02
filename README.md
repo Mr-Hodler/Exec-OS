@@ -17,11 +17,11 @@ Three skills, split by job, trigger, and audience rather than by topic.
 | **dataroom-ops** | The library | Build and maintain the canonical data room as a single organized source of truth, assembled from Founder-OS outputs | You, internal | Ongoing hygiene |
 | **diligence-ops** | The delivery counter | Package the data room for any third party under scrutiny: investors, due diligence, board, audit. Stage-adaptive (seed to M&A) | External examiner | A fundraise, DD request, board cycle, or audit |
 | **knowledge-custodian** | The substrate | Keep files and workspaces organized across all companies, and infer the de-facto org from the file topology. Advice-only in v1.0; safe batch reorganization in v1.1 | You, internal | Always-on |
-| **hr-org** | The team architect | Design team and org structure, optimize team operations, plan workforce, and run hiring. Produces the Organization Model that knowledge-custodian mirrors in information architecture | You, internal | Org design, performance, hiring |
+| **functional-hr-ops** | The team architect | Design team and org structure, optimize team operations, plan workforce, run hiring, and roll out org change. Produces the Organization Model that knowledge-custodian mirrors in information architecture | You, internal | Org design, performance, hiring, rollout |
 
 The handoff is clean: **dataroom-ops** produces the canonical corpus, **diligence-ops** consumes it and curates examiner-facing packages, and **knowledge-custodian** organizes the raw substrate beneath both. None of them duplicate Founder-OS, which owns the strategy artifacts and the metrics dashboard that feed board packs and the data room.
 
-knowledge-custodian and hr-org form a bidirectional pair: knowledge-custodian's Architect infers the de-facto org from the file topology and hands it to hr-org; hr-org designs the target Organization Model and hands it back, which knowledge-custodian uses to place files (for example marketing design assets under `marketing/design/`) and shape information architecture. One owns team architecture, the other owns information architecture, via a shared `Organization-Model.md`.
+knowledge-custodian and functional-hr-ops form a bidirectional pair: knowledge-custodian's Architect infers the de-facto org from the file topology and hands it to functional-hr-ops; functional-hr-ops designs the target Organization Model and hands it back, which knowledge-custodian uses to place files (for example marketing design assets under `marketing/design/`) and shape information architecture. One owns team architecture, the other owns information architecture, via a shared `Organization-Model.md`.
 
 **Status:** all four skills are built and packaged. knowledge-custodian is advice-only in v1.0 (its Execute mode, safe batch moves, lands in v1.1).
 
@@ -37,11 +37,11 @@ Modes by audience: **Fundraise Data Room Prep** (stage checklists, sensitivity t
 
 Modes: **Scan** (read-only inventory of structure, metadata, and organizational signals), **Advise** (a report of suggested consolidations, orphan files, naming violations, duplicates, stale files, with zero filesystem changes), **Standardize** (derive an org-aware "Aron's File Organization Standard" from how you already organize, plus best practice), **Onboarding** (set up a compliant structure for a new company), and **Architect** (read the information topology, infer the implicit functional and team structure, recommend the target information architecture, and flag operations/performance frictions such as silos, cross-team duplication, and ownerless areas). **Execute** (safe batch moves) is deferred to v1.1. The skill **never deletes**: it moves to a timestamped `_archive/`, snapshots state before any action, keeps an undo log, and never touches the blacklist.
 
-Architect owns information architecture, not team design: it infers the functional map and flags frictions from the topology, then hands people and team-scaling decisions to **hr-org**, which consumes that evidence and hands back the Organization Model.
+Architect owns information architecture, not team design: it infers the functional map and flags frictions from the topology, then hands people and team-scaling decisions to **functional-hr-ops**, which consumes that evidence and hands back the Organization Model.
 
-### hr-org (the team architect)
+### functional-hr-ops (the team architect)
 
-Modes: **Org Design** (structure teams, departments, product lines, sites, and work modes using a fitted operating model: Team Topologies, Spotify, functional, divisional, matrix, two-pizza, lean), **Team Ops & Performance** (interaction modes, cross-team operations, cognitive load, friction diagnosis, performance levers), **Workforce Planning** (need detection, gap analysis, build vs hire, sequencing), **Hiring Prep** (role definition, job description, scorecard, interview plan, candidate prospectus). It produces `Organization-Model.md`, the shared artifact knowledge-custodian consumes. It is advisory: it recommends and drafts, it does not make personnel decisions or set pay.
+Modes: **Org Design** (structure teams, business units, departments, product lines, sites, work modes, reporting lines, and roles using a fitted operating model scaled by company size), **Team Ops & Performance** (interaction modes, cross-team operations as workflows, cognitive load, friction diagnosis, performance levers), **Workforce Planning** (need detection, gap analysis, build vs hire, sequencing), **Hiring Prep** (role definition, job description, scorecard, interview plan, candidate prospectus), **Org Rollout** (phased implementation roadmap with success metrics). It reasons with operating-model frameworks and the structural research behind them (Team Topologies, Spotify, functional/divisional/matrix, two-pizza, lean; Dunbar, Conway, Tuckman, span of control), defines roles by what they own and explicitly do not, carries an anti-patterns catalog, and produces `Organization-Model.md`, the shared artifact knowledge-custodian consumes. It is advisory: it recommends and drafts, it does not make personnel decisions or set pay.
 
 ## Roadmap and pipeline
 
@@ -84,10 +84,10 @@ Knowledge-Ops-Repo/                      # repo root = the plugin AND the market
     │   ├── SKILL.md
     │   └── references/                  # safeguards, scan-and-providers, advise-protocol, information-architecture, standard-and-onboarding, config-and-handoff
     ├── knowledge-custodian.skill
-    ├── hr-org/                          # built
+    ├── functional-hr-ops/              # built
     │   ├── SKILL.md
-    │   └── references/                  # operating-models, org-design, organization-model, team-ops, workforce-and-hiring, config-and-handoff
-    └── hr-org.skill
+    │   └── references/                  # operating-models, anti-patterns, org-design, organization-model, team-ops, workforce-and-hiring, rollout-and-metrics, config-and-handoff
+    └── functional-hr-ops.skill
 ```
 
 Each skill's `.skill` file is the packaged zip (SKILL.md plus references), sitting alongside its source folder in `skills/` for one-click install.
@@ -117,6 +117,18 @@ The first command registers this repo as a marketplace; the second installs the 
 /plugin marketplace add /path/to/Knowledge-Ops-Repo
 /plugin install knowledge-ops@knowledge-ops
 ```
+
+## Foundations and sources
+
+The skills are not invented from first principles; each is calibrated on established references so its recommendations carry weight.
+
+**Due diligence and data room** (dataroom-ops, diligence-ops) are calibrated on Swiss venture standards: the [SICTIC / Swiss ICT Investor Club](https://www.sictic.ch/) due diligence checklist and the Swiss Angel Investor Handbook, [Innosuisse](https://www.innosuisse.admin.ch/) screening criteria, a Startup Board Academy governance due diligence list, and an Elysium-grade M&A acquisition request list (corporate plus engineering and infrastructure). These map to the canonical data room taxonomy and the per-stage profiles (seed to M&A).
+
+**Team and organization design** (functional-hr-ops) draws on [Team Topologies](https://teamtopologies.com/) (Skelton and Pais) for team types, interaction modes, and cognitive load; the Spotify engineering model (squads, tribes, chapters, guilds); Apple's functional organization as described in the Harvard Business Review article [How Apple Is Organized for Innovation](https://hbr.org/2020/11/how-apple-is-organized-for-innovation); Amazon's two-pizza and single-threaded-leader model; and the classic structural heuristics, Dunbar's number for group size, Conway's law for team-to-architecture alignment, span-of-control limits, and Tuckman's stages as the case for stable over project teams.
+
+**Information architecture** (knowledge-custodian) offers [PARA](https://fortelabs.com/blog/para/) and [Johnny.Decimal](https://johnnydecimal.com/) as optional baseline templates when there is little existing structure to learn from.
+
+**Repository conventions** follow [Keep a Changelog](https://keepachangelog.com/) and [Semantic Versioning](https://semver.org/).
 
 ## Versioning and contributing
 

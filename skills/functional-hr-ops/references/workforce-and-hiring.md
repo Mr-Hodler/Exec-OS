@@ -33,7 +33,7 @@ A prioritized workforce plan: each gap, recommended option, reasoning, sequence 
 From the gap: mission (why the role exists), scope, the outcomes it must deliver in the first 6 to 12 months, level, and how it fits the Organization Model (which team, which interfaces).
 
 ### Job description
-Lead with mission and outcomes, not a task list. Separate must-have from nice-to-have (keep must-haves few and real). State level, compensation band (mark where the user must set the numbers; hr-org frames, it does not set pay), location, and work mode. Write it to attract the right person and deter the wrong one, honestly.
+Lead with mission and outcomes, not a task list. Separate must-have from nice-to-have (keep must-haves few and real). State level, compensation band (mark where the user must set the numbers; functional-hr-ops frames, it does not set pay), location, and work mode. Write it to attract the right person and deter the wrong one, honestly.
 
 ### Scorecard
 The few outcomes and competencies that actually predict success in this role, each with "what good looks like". This is what interviewers score against, so signal beats vibes. Keep it short and role-specific.
@@ -45,4 +45,4 @@ The loop: stages (for example screen, craft/skills, team/values, founder), who a
 The brief sent to candidates to sell the opportunity with candor: company and mission, the role's real impact, the team and who they will work with, stage and trajectory, compensation framing, and what success looks like in the first year. Honest about challenges, not hype. This is the document the user asked for to present the opportunity to candidates.
 
 ### Deliver
-Role definition, JD, scorecard, interview plan, and candidate prospectus, ready to use. Render to docs/PDF where useful. Employment-law specifics (contracts, regulations) route to a legal skill or counsel; hr-org provides structure and drafts, not legal advice.
+Role definition, JD, scorecard, interview plan, and candidate prospectus, ready to use. Render to docs/PDF where useful. Employment-law specifics (contracts, regulations) route to a legal skill or counsel; functional-hr-ops provides structure and drafts, not legal advice.

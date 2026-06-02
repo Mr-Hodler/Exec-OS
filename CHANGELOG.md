@@ -2,9 +2,20 @@
 
 All notable changes to Knowledge-Ops are documented here. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.2.0] - 2026-06-02
+## [0.3.0] - 2026-06-02
+
+### Changed
+- Renamed the team-architecture skill **hr-org** to **functional-hr-ops** (directory, skill name, `.skill` package, config key `functional_hr_ops`, manifests, and all cross-references in knowledge-custodian).
 
 ### Added
+- functional-hr-ops **Org Rollout** mode (fifth mode): a phased implementation roadmap (pilot, scale, optimize) with entry criteria, checklists, owners, a communication and risk plan, and a success-metrics catalog with baselines and targets (team health, velocity, cycle time, blocking cross-team dependencies, deployment frequency, discipline-community participation).
+- functional-hr-ops **anti-patterns** reference: a catalog of what not to do (project-based resourcing, functional silos, too many reporting lines, fractional resource pooling, front-loading layers, premature org-by-segment, owner-less cross-team operations), each with the counter-solution, plus the conditions under which a functional org is the right call.
+- functional-hr-ops **cited structural foundations** in operating-models (Dunbar, two-pizza, span of control, Conway, Tuckman, cognitive load) and a "why each layer exists" rationale, so each design choice is justified, not asserted.
+- functional-hr-ops **richer Organization Model**: roles defined by accountability, decision rights, and an explicit "not responsible for"; dual reporting (vertical delivery line and horizontal craft/discipline line); discipline types (embedded/service/specialized) with allocation rule and lead scope; unit size bands and a company scale tier; per-unit rituals; layer decision gates (no business unit for a single team; split at span of control); a RACI decision matrix with exactly one Accountable per decision; and an optional legal-entity layer for multi-entity holdings.
+- functional-hr-ops cross-team operations specified as **workflows** (intake, lead-times, dependency-resolution steps, escalation ladder), not just structure.
+- knowledge-custodian now consumes `functional_hr_ops.organization_model_path`, with the Organization Model taking precedence over the inferred map for file placement.
+
+### Added (introduced in development as 0.2.0, shipped here)
 - **hr-org** skill (the team architect): `SKILL.md` with four modes (Org Design, Team Ops and Performance, Workforce Planning, Hiring Prep) and references for the operating-model library (Team Topologies, Spotify, functional, divisional, matrix, two-pizza / single-threaded leader, lean/flat), org design across functional/product/geographic/work-mode dimensions, the `Organization-Model.md` shared artifact and bidirectional contract, team ops (interaction modes, cognitive load, frictions, levers), workforce planning and the hiring toolkit (role, JD, scorecard, interview plan, candidate prospectus), and config/handoff. Advisory: recommends and drafts, never makes personnel decisions or sets pay. Packaged as `hr-org.skill`.
 - **Architect mode** in knowledge-custodian: reads the information topology and organizational signals (file/drive types, product/team areas, collaboration and access graph, hotspots, ownership concentration), infers the implicit functional and team structure, recommends the target information architecture, and flags operations/performance frictions (silos, cross-team duplication, ownerless areas, single-person bottlenecks).
 - Bidirectional `knowledge-custodian <-> hr-org` contract via `Organization-Model.md`: Architect infers the de-facto org and hands it to hr-org; hr-org designs the target model and hands it back; knowledge-custodian reads it (`hr_org.organization_model_path`) to place files and shape information architecture, the model taking precedence over the inferred map.
@@ -32,5 +43,6 @@ All notable changes to Knowledge-Ops are documented here. The format is based on
 - Diligence calibrated on Swiss venture standards (SICTIC seed, Startup Board Academy governance) and M&A-grade acquisition lists (Elysium Lab).
 - knowledge-custodian v1.0 is advice-only; Execute mode (safe batch moves) deferred to v1.1 under mandatory safeguards (never delete, archive + snapshot + undo log + confirmation).
 
+[0.3.0]: https://github.com/Mr-Hodler/Knowledge-Ops/releases/tag/v0.3.0
 [0.2.0]: https://github.com/Mr-Hodler/Knowledge-Ops/releases/tag/v0.2.0
 [0.1.0]: https://github.com/Mr-Hodler/Knowledge-Ops/releases/tag/v0.1.0

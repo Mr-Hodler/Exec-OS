@@ -2,7 +2,7 @@
 
 Architect treats the information architecture as a mirror of the company's real functional, product, and team structure. It reads the topology, infers how the company actually works, recommends how its information should be structured to match, and flags the operations and performance frictions the topology reveals. It is read-only: it produces a map, a recommendation, and a friction list, and changes nothing.
 
-It owns **information** architecture. It does not own **team** architecture: people, roles, team boundaries, and scaling decisions belong to the future HR/Org skill, which consumes Architect's evidence.
+It owns **information** architecture. It does not own **team** architecture: people, roles, team boundaries, and scaling decisions belong to the functional-hr-ops skill, which consumes Architect's evidence.
 
 ## 1. Organizational signals (input)
 
@@ -14,7 +14,7 @@ Today Architect reads file-level access (sharing and permissions) from the Drive
 
 When such a connector exists, Architect may consume these as **read-only signals** to sharpen the functional map (groups and org units often reveal de facto teams) and the friction list (access policy gaps). It still does not own them: governance and IAM are a separate domain. The seam:
 
-- **Groups and org units** are evidence routed to the future `hr-org` skill (they map to team structure).
+- **Groups and org units** are evidence routed to the future `functional-hr-ops` skill (they map to team structure).
 - **Security and access policies** are evidence routed to `compliance-ops` / `diligence-ops` (SOC 2, ISO 27001, GDPR).
 - **Identity and access management** proper (provisioning, roles, SSO) belongs to a future `security-ops` / `iam-ops` skill.
 
@@ -31,11 +31,11 @@ Reconstruct the de facto structure from the evidence, not from a claimed org cha
 
 State the inferred map as a hypothesis grounded in named evidence ("finance and ops share one drive and three editors, so they operate as one unit today"), not as fact. Mark confidence and note where the signals are thin.
 
-### The Organization Model takes precedence (from hr-org)
+### The Organization Model takes precedence (from functional-hr-ops)
 
-If `hr_org.organization_model_path` (default `Organization-Model.md`) exists, read it: it is the **target** team and org structure hr-org designed, and it wins over the purely inferred map. Architect then recommends an information architecture that mirrors the Organization Model, using its "Information-architecture mapping" section to place artifacts (for example marketing design assets under `marketing/design/`, a product team's specs under that product's area, shared collaboration in the named shared space).
+If `functional_hr_ops.organization_model_path` (default `Organization-Model.md`) exists, read it: it is the **target** team and org structure functional-hr-ops designed, and it wins over the purely inferred map. Architect then recommends an information architecture that mirrors the Organization Model, using its "Information-architecture mapping" section to place artifacts (for example marketing design assets under `marketing/design/`, a product team's specs under that product's area, shared collaboration in the named shared space).
 
-The split: hr-org owns the team architecture and writes the model; knowledge-custodian owns the information architecture and mirrors the model. When the inferred de-facto map diverges from the Organization Model, flag the drift back to hr-org as evidence (the org may have changed, or the model may be stale), and do not silently override the model.
+The split: functional-hr-ops owns the team architecture and writes the model; knowledge-custodian owns the information architecture and mirrors the model. When the inferred de-facto map diverges from the Organization Model, flag the drift back to functional-hr-ops as evidence (the org may have changed, or the model may be stale), and do not silently override the model.
 
 ## 3. Recommend the target information architecture
 
@@ -62,7 +62,7 @@ Operations and performance frictions visible in the topology:
 
 Prioritize: high (risk or active drag on operations), medium (findability/consistency), low (cosmetic).
 
-## 5. Hand off people and scaling to HR/Org
+## 5. Hand off people and scaling to functional-hr-ops
 
 Where the evidence points beyond information into team design, surface it as evidence and route the decision, do not decide it here:
 
@@ -70,14 +70,14 @@ Where the evidence points beyond information into team design, surface it as evi
 - A bottleneck person (signal of a hiring or knowledge-distribution need).
 - A collaboration pattern that suggests two teams should merge or split.
 
-Write these as explicit handoff notes: the observed signal, the information-architecture implication (which Architect owns), and the team/people question for HR/Org (which it does not). The future HR/Org skill consumes the inferred functional map and these notes to design team structure and help scale the team (roles, boundaries, vision), exactly as diligence-ops consumes the data room.
+Write these as explicit handoff notes: the observed signal, the information-architecture implication (which Architect owns), and the team/people question for functional-hr-ops (which it does not). The functional-hr-ops skill consumes the inferred functional map and these notes to design team structure and help scale the team (roles, boundaries, vision), exactly as diligence-ops consumes the data room.
 
 ## 6. Deliverable
 
 - The **inferred functional map** (with evidence and confidence).
 - The **target IA recommendation** (aligned to the standard, with reasoning).
 - The **prioritized friction list**.
-- The **HR/Org handoff notes**.
+- The **functional-hr-ops handoff notes**.
 - Optionally a visual map if `preferences.visual_artifact` allows.
 
 Everything is read-only and advisory. Applying any resulting file moves is Execute mode (v1.1), under every safeguard, and never includes deletion.

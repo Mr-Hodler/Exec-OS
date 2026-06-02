@@ -1,7 +1,7 @@
 {
   "name": "knowledge-ops",
-  "version": "0.2.0",
-  "description": "Horizontal, cross-company operations layer for founders and COO-shaped operators. Builds and maintains a canonical data room from founder-os outputs (dataroom-ops), packages it for any third party under scrutiny - investors, due diligence, board, audit (diligence-ops), keeps the underlying files and workspaces organized and infers the de-facto org from them (knowledge-custodian), and designs team and org structure, plans workforce, and runs hiring (hr-org). Swiss venture context, stage-adaptive (seed to M&A).",
+  "version": "0.3.0",
+  "description": "Horizontal, cross-company operations layer for founders and COO-shaped operators. Builds and maintains a canonical data room from founder-os outputs (dataroom-ops), packages it for any third party under scrutiny - investors, due diligence, board, audit (diligence-ops), keeps the underlying files and workspaces organized and infers the de-facto org from them (knowledge-custodian), and designs team and org structure, plans workforce, runs hiring, and rolls out org change (functional-hr-ops). Swiss venture context, stage-adaptive (seed to M&A).",
   "author": {
     "name": "Aron Clementi"
   },
