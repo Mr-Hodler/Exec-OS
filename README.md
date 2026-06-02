@@ -20,7 +20,7 @@ Three skills, split by job, trigger, and audience rather than by topic.
 
 The handoff is clean: **dataroom-ops** produces the canonical corpus, **diligence-ops** consumes it and curates examiner-facing packages, and **knowledge-custodian** organizes the raw substrate beneath both. None of them duplicate Founder-OS, which owns the strategy artifacts and the metrics dashboard that feed board packs and the data room.
 
-**Status:** dataroom-ops and diligence-ops are built and packaged. knowledge-custodian is scaffolded and ships next, advice-only in v1.0.
+**Status:** all three skills are built and packaged. knowledge-custodian is advice-only in v1.0 (its Execute mode, safe batch moves, lands in v1.1).
 
 ### dataroom-ops (the library)
 
@@ -30,9 +30,11 @@ Modes: **Bootstrap** (lay down the canonical folder/page structure on your chose
 
 Modes by audience: **Fundraise Data Room Prep** (stage checklists, sensitivity tagging, missing items), **Due Diligence Support** (legal / financial / tech / commercial DD questionnaires, Q&A tracker, evidence assembly, access log), **Board & Investor Reporting** (board packs, investor letters, recurring cadence), **Audit Prep** (evidence assembly for financial, security, and compliance audits: ISO, SOC 2, GDPR). Calibrated on Swiss venture standards (SICTIC, Innosuisse) and M&A-grade acquisition lists.
 
-### knowledge-custodian (the substrate) - planned, v1.0
+### knowledge-custodian (the substrate) - built, advice-only v1.0
 
-Modes: **Scan** (read-only inventory of structure and metadata), **Advise** (a report of suggested consolidations, orphan files, naming violations, duplicates, stale files, with zero filesystem changes), **Standardize** (derive "Aron's File Organization Standard" from how you already organize, plus best practice), **Onboarding** (set up a compliant structure for a new company). **Execute** (safe batch moves) is deferred to v1.1. The skill **never deletes**: it moves to a timestamped `_archive/`, snapshots state before any action, keeps an undo log, and never touches the blacklist.
+Modes: **Scan** (read-only inventory of structure, metadata, and organizational signals), **Advise** (a report of suggested consolidations, orphan files, naming violations, duplicates, stale files, with zero filesystem changes), **Standardize** (derive an org-aware "Aron's File Organization Standard" from how you already organize, plus best practice), **Onboarding** (set up a compliant structure for a new company), and **Architect** (read the information topology, infer the implicit functional and team structure, recommend the target information architecture, and flag operations/performance frictions such as silos, cross-team duplication, and ownerless areas). **Execute** (safe batch moves) is deferred to v1.1. The skill **never deletes**: it moves to a timestamped `_archive/`, snapshots state before any action, keeps an undo log, and never touches the blacklist.
+
+Architect owns information architecture, not team design: it infers the functional map and flags frictions from the topology, then hands people and team-scaling decisions to a future HR/Org skill, which consumes that evidence.
 
 ## Roadmap and pipeline
 
@@ -40,8 +42,9 @@ Knowledge-Ops is designed to grow into a full COO operations suite. Skills under
 
 - **vendor-ops** - vendor/tooling inventory, contract renewals, spend, TCO across companies.
 - **compliance-ops** - cross-company compliance posture (GDPR, ISO 27001, SOC 2) and audit readiness as a standing capability rather than a one-off prep.
-- **people-ops** - org charts, hiring pipelines, equity/ESOP tracking across the portfolio.
+- **hr-org** - the team-architecture counterpart to knowledge-custodian's Architect mode: consumes the inferred functional map and friction evidence to own team structure, roles, org and functional design, and team scaling (people, teams, vision). Covers org charts, hiring pipelines, and equity/ESOP across the portfolio.
 - **process-ops** - SOPs, RACI, and runbooks for the operations that repeat across companies.
+- **security-ops / iam-ops** - identity and access management, Google Workspace and directory governance (groups, org units, roles, security policies). Consumes the governance signals knowledge-custodian's Architect surfaces, and owns the IAM decisions knowledge-custodian deliberately does not.
 - **reporting-ops** - a recurring-reporting engine if board/investor reporting outgrows being a mode inside diligence-ops.
 
 These are intentionally *not* built yet. The repo ships the three skills above first and earns each addition.
@@ -71,9 +74,10 @@ Knowledge-Ops-Repo/                      # repo root = the plugin AND the market
     │   ├── SKILL.md
     │   └── references/                  # checklists, packaging-and-access, qa-and-evidence, reporting, config-and-handoff
     ├── diligence-ops.skill
-    └── knowledge-custodian/             # planned (v1.0, advice-only)
-        ├── SKILL.md
-        └── references/
+    ├── knowledge-custodian/             # built (advice-only v1.0; Execute in v1.1)
+    │   ├── SKILL.md
+    │   └── references/                  # safeguards, scan-and-providers, advise-protocol, information-architecture, standard-and-onboarding, config-and-handoff
+    └── knowledge-custodian.skill
 ```
 
 Each skill's `.skill` file is the packaged zip (SKILL.md plus references), sitting alongside its source folder in `skills/` for one-click install.
