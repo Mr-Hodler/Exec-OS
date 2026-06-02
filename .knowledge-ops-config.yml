@@ -85,6 +85,18 @@ knowledge_custodian:
   snapshot_folder_name: "_snapshots"  # pre-action state snapshot for undo
   confirm_batch_over: 5     # explicit confirmation required for batches larger than this
 
+# ── hr-org: team architecture (counterpart to knowledge-custodian Architect) ──
+# Produces Organization-Model.md, the shared artifact knowledge-custodian consumes
+# to place files and shape information architecture. Owns team/people/org design.
+hr_org:
+  organization_model_path: "Organization-Model.md"   # the shared org model doc
+  default_operating_model: ""        # optional preference: team-topologies | spotify | functional | divisional | matrix | two-pizza | lean (blank = choose by fit)
+  work_modes:                        # default work modes in use
+    - remote
+    - hybrid
+    - onsite
+  sites: []                          # offices/locations, e.g. ["Zurich", "Remote-EU"]
+
 preferences:
   visual_artifact: ask      # always | ask | never  (HTML dashboards / visual maps)
   ai_ops_autonomous: on     # allow skills to chain steps without per-step confirmation

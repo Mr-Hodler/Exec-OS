@@ -31,9 +31,15 @@ Reconstruct the de facto structure from the evidence, not from a claimed org cha
 
 State the inferred map as a hypothesis grounded in named evidence ("finance and ops share one drive and three editors, so they operate as one unit today"), not as fact. Mark confidence and note where the signals are thin.
 
+### The Organization Model takes precedence (from hr-org)
+
+If `hr_org.organization_model_path` (default `Organization-Model.md`) exists, read it: it is the **target** team and org structure hr-org designed, and it wins over the purely inferred map. Architect then recommends an information architecture that mirrors the Organization Model, using its "Information-architecture mapping" section to place artifacts (for example marketing design assets under `marketing/design/`, a product team's specs under that product's area, shared collaboration in the named shared space).
+
+The split: hr-org owns the team architecture and writes the model; knowledge-custodian owns the information architecture and mirrors the model. When the inferred de-facto map diverges from the Organization Model, flag the drift back to hr-org as evidence (the org may have changed, or the model may be stale), and do not silently override the model.
+
 ## 3. Recommend the target information architecture
 
-Propose how information should be structured to mirror the inferred reality and to scale:
+Propose how information should be structured to mirror the inferred reality (and the Organization Model when present) and to scale:
 
 - **Top level by company** (isolation holds, as everywhere in Knowledge-Ops), then by functional area / product / team as the evidence warrants.
 - **Shared spaces where collaboration is dense**, so the structure supports how the team actually works rather than fighting it.

@@ -16,11 +16,14 @@ Three skills, split by job, trigger, and audience rather than by topic.
 | --- | --- | --- | --- | --- |
 | **dataroom-ops** | The library | Build and maintain the canonical data room as a single organized source of truth, assembled from Founder-OS outputs | You, internal | Ongoing hygiene |
 | **diligence-ops** | The delivery counter | Package the data room for any third party under scrutiny: investors, due diligence, board, audit. Stage-adaptive (seed to M&A) | External examiner | A fundraise, DD request, board cycle, or audit |
-| **knowledge-custodian** | The substrate | Keep files and workspaces organized across all companies. Advice-only in v1.0; safe batch reorganization in v1.1 | You, internal | Always-on |
+| **knowledge-custodian** | The substrate | Keep files and workspaces organized across all companies, and infer the de-facto org from the file topology. Advice-only in v1.0; safe batch reorganization in v1.1 | You, internal | Always-on |
+| **hr-org** | The team architect | Design team and org structure, optimize team operations, plan workforce, and run hiring. Produces the Organization Model that knowledge-custodian mirrors in information architecture | You, internal | Org design, performance, hiring |
 
 The handoff is clean: **dataroom-ops** produces the canonical corpus, **diligence-ops** consumes it and curates examiner-facing packages, and **knowledge-custodian** organizes the raw substrate beneath both. None of them duplicate Founder-OS, which owns the strategy artifacts and the metrics dashboard that feed board packs and the data room.
 
-**Status:** all three skills are built and packaged. knowledge-custodian is advice-only in v1.0 (its Execute mode, safe batch moves, lands in v1.1).
+knowledge-custodian and hr-org form a bidirectional pair: knowledge-custodian's Architect infers the de-facto org from the file topology and hands it to hr-org; hr-org designs the target Organization Model and hands it back, which knowledge-custodian uses to place files (for example marketing design assets under `marketing/design/`) and shape information architecture. One owns team architecture, the other owns information architecture, via a shared `Organization-Model.md`.
+
+**Status:** all four skills are built and packaged. knowledge-custodian is advice-only in v1.0 (its Execute mode, safe batch moves, lands in v1.1).
 
 ### dataroom-ops (the library)
 
@@ -34,7 +37,11 @@ Modes by audience: **Fundraise Data Room Prep** (stage checklists, sensitivity t
 
 Modes: **Scan** (read-only inventory of structure, metadata, and organizational signals), **Advise** (a report of suggested consolidations, orphan files, naming violations, duplicates, stale files, with zero filesystem changes), **Standardize** (derive an org-aware "Aron's File Organization Standard" from how you already organize, plus best practice), **Onboarding** (set up a compliant structure for a new company), and **Architect** (read the information topology, infer the implicit functional and team structure, recommend the target information architecture, and flag operations/performance frictions such as silos, cross-team duplication, and ownerless areas). **Execute** (safe batch moves) is deferred to v1.1. The skill **never deletes**: it moves to a timestamped `_archive/`, snapshots state before any action, keeps an undo log, and never touches the blacklist.
 
-Architect owns information architecture, not team design: it infers the functional map and flags frictions from the topology, then hands people and team-scaling decisions to a future HR/Org skill, which consumes that evidence.
+Architect owns information architecture, not team design: it infers the functional map and flags frictions from the topology, then hands people and team-scaling decisions to **hr-org**, which consumes that evidence and hands back the Organization Model.
+
+### hr-org (the team architect)
+
+Modes: **Org Design** (structure teams, departments, product lines, sites, and work modes using a fitted operating model: Team Topologies, Spotify, functional, divisional, matrix, two-pizza, lean), **Team Ops & Performance** (interaction modes, cross-team operations, cognitive load, friction diagnosis, performance levers), **Workforce Planning** (need detection, gap analysis, build vs hire, sequencing), **Hiring Prep** (role definition, job description, scorecard, interview plan, candidate prospectus). It produces `Organization-Model.md`, the shared artifact knowledge-custodian consumes. It is advisory: it recommends and drafts, it does not make personnel decisions or set pay.
 
 ## Roadmap and pipeline
 
@@ -42,7 +49,6 @@ Knowledge-Ops is designed to grow into a full COO operations suite. Skills under
 
 - **vendor-ops** - vendor/tooling inventory, contract renewals, spend, TCO across companies.
 - **compliance-ops** - cross-company compliance posture (GDPR, ISO 27001, SOC 2) and audit readiness as a standing capability rather than a one-off prep.
-- **hr-org** - the team-architecture counterpart to knowledge-custodian's Architect mode: consumes the inferred functional map and friction evidence to own team structure, roles, org and functional design, and team scaling (people, teams, vision). Covers org charts, hiring pipelines, and equity/ESOP across the portfolio.
 - **process-ops** - SOPs, RACI, and runbooks for the operations that repeat across companies.
 - **security-ops / iam-ops** - identity and access management, Google Workspace and directory governance (groups, org units, roles, security policies). Consumes the governance signals knowledge-custodian's Architect surfaces, and owns the IAM decisions knowledge-custodian deliberately does not.
 - **reporting-ops** - a recurring-reporting engine if board/investor reporting outgrows being a mode inside diligence-ops.
@@ -51,7 +57,7 @@ These are intentionally *not* built yet. The repo ships the three skills above f
 
 ## Repository layout
 
-This repo is a self-contained Claude plugin (and a one-plugin marketplace), so it installs directly. The three skills ship as one plugin; each also ships as a standalone `.skill` for one-click install.
+This repo is a self-contained Claude plugin (and a one-plugin marketplace), so it installs directly. The four skills ship as one plugin; each also ships as a standalone `.skill` for one-click install.
 
 ```
 Knowledge-Ops-Repo/                      # repo root = the plugin AND the marketplace
@@ -77,7 +83,11 @@ Knowledge-Ops-Repo/                      # repo root = the plugin AND the market
     ├── knowledge-custodian/             # built (advice-only v1.0; Execute in v1.1)
     │   ├── SKILL.md
     │   └── references/                  # safeguards, scan-and-providers, advise-protocol, information-architecture, standard-and-onboarding, config-and-handoff
-    └── knowledge-custodian.skill
+    ├── knowledge-custodian.skill
+    ├── hr-org/                          # built
+    │   ├── SKILL.md
+    │   └── references/                  # operating-models, org-design, organization-model, team-ops, workforce-and-hiring, config-and-handoff
+    └── hr-org.skill
 ```
 
 Each skill's `.skill` file is the packaged zip (SKILL.md plus references), sitting alongside its source folder in `skills/` for one-click install.
@@ -99,7 +109,7 @@ Open the relevant `.skill` file (e.g. `skills/dataroom-ops.skill`) and use **Sav
 /plugin install knowledge-ops@knowledge-ops
 ```
 
-The first command registers this repo as a marketplace; the second installs the plugin with all three skills.
+The first command registers this repo as a marketplace; the second installs the plugin with all four skills.
 
 ### Option C - manual / local
 
