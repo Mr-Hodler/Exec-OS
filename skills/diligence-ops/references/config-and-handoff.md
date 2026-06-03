@@ -25,6 +25,8 @@ diligence-ops is a pure consumer of the canonical data room:
 
 If the room does not exist or is stale, stop and hand off to dataroom-ops (Bootstrap / Sync / Audit) before packaging. Packaging a stale or incomplete room is a worse outcome than a short delay.
 
+**Audit is the shared gap source of truth.** For any stage or framework, diligence-ops runs or refreshes the dataroom-ops Audit against that stage and consumes its gap punch-list, instead of independently recomputing what is missing. diligence-ops owns only what Audit does not: audience scoping, sensitivity gating, the access log, the Q&A and evidence trackers, and the examiner-facing package. If the two ever disagree, the Audit wins and diligence-ops routes the discrepancy back to dataroom-ops. This single-source rule is what keeps the library and the delivery counter aligned.
+
 ## Routing missing items (never fabricate)
 
 When a checklist item or a DD question has no evidence in the room:

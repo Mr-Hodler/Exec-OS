@@ -4,6 +4,8 @@ These ship with the skill so it can proactively tell you what an examiner will e
 
 A heavier stage is a superset of a lighter one. Always state readiness relative to the named checklist.
 
+**Gap detection defers to dataroom-ops Audit.** These checklists are the shared yardstick, but the authoritative gap list comes from running dataroom-ops Audit against the stage. diligence-ops consumes that punch-list and adds audience and sensitivity on top, rather than recomputing which items are missing. Use the checklist directly only when no Audit is available. This prevents the library and the delivery counter from disagreeing on completeness.
+
 ## Seed / angel (SICTIC-grade)
 
 Source pattern: SICTIC / Swiss ICT Investor Club and the Swiss Angel Investor Handbook. Light depth, but the cap table and the IP ownership chain must be airtight.

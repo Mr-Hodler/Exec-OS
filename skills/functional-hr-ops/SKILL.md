@@ -87,7 +87,7 @@ If ambiguous, start with Org Design (the others build on the model it produces).
 6. **Produce the RACI decision matrix.** Key decisions by role, exactly one Accountable each. See `references/org-design.md`.
 7. **Define interfaces and cross-team operations.** Ownership boundaries, interaction modes, and the recurring operations that span teams, each with an owner and cadence.
 8. **Update the Organization Model.** Write `Organization-Model.md` (schema in `references/organization-model.md`) and update the config pointer. This is what knowledge-custodian consumes to place files (for example marketing design assets under `marketing/design/`) and shape information architecture.
-9. **Deliver** the target org (org chart and team-interaction map if visuals allowed), the model rationale with citations and trade-offs, transition notes from today's de-facto structure, and the handoff to knowledge-custodian.
+9. **Deliver** the target org, the model rationale with citations and trade-offs, transition notes from today's de-facto structure, and the handoff to knowledge-custodian. If visuals are allowed, render the org chart, team-interaction map, mind map, and RACI, and offer an onboarding/training pack (HTML by default, PDF or PPT on request). See `references/visual-outputs.md`.
 
 ---
 
@@ -171,4 +171,5 @@ If ambiguous, start with Org Design (the others build on the model it produces).
 - `references/team-ops.md` - interaction modes, cross-team operations as workflows (intake, lead-times, escalation), cognitive load, friction diagnosis, and performance levers.
 - `references/workforce-and-hiring.md` - need detection, gap analysis, build vs hire, sequencing, and the hiring toolkit (role, JD, scorecard, interview plan, candidate prospectus).
 - `references/rollout-and-metrics.md` - the phased implementation roadmap and the success-metrics catalog with baselines and targets.
+- `references/visual-outputs.md` - rendering the Organization Model as visuals (org chart, team-interaction map, cross-team flows, mind map, RACI) and assembling an onboarding/training pack in HTML, PDF, or PPT.
 - `references/config-and-handoff.md` - reading config and inputs, graceful degradation, and the handoffs to knowledge-custodian, Founder-OS, and legal.

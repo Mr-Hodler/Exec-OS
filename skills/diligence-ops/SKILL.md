@@ -72,7 +72,7 @@ If ambiguous, ask which audience and stage, since the checklist depends on both.
 
 1. **Confirm target company and stage.** Stage drives the checklist (`references/checklists.md`): pre_seed/seed is SICTIC-grade, Series A/B heavier, M&A is Elysium-grade.
 2. **Check the room exists and is fresh.** If not built or stale, hand off to dataroom-ops (Bootstrap/Sync/Audit) before packaging.
-3. **Score against the stage checklist.** Mark each expected item present / thin / missing. Missing items route to dataroom-ops with a specific request. Never fabricate.
+3. **Consume the dataroom-ops Audit as the gap source of truth.** Run or refresh dataroom-ops Audit against this stage and use its gap punch-list rather than recomputing gaps independently. diligence-ops then layers what Audit does not cover: audience scoping, sensitivity gating, and the examiner-facing view. Only fall back to scoring the checklist itself if no Audit is available. This keeps the two skills from diverging on what is missing. Missing items route back to dataroom-ops with a specific request. Never fabricate.
 4. **Gate sensitivity.** Confirm every item's `sensitivity` tag. `restricted` items are excluded from the investor view by default; `confidential` items are NDA-gated; `public` items are open. Mis-tiered items are flagged (a leakage risk).
 5. **Build the access-filtered view** for the investor's access level (see `references/packaging-and-access.md`), and offer an export bundle for offline sharing.
 6. **Open the access log** entry for this investor/process and record what was granted.

@@ -41,6 +41,8 @@ dataroom-ops is the producer; diligence-ops is the consumer. The contract that m
 
 When diligence-ops reports that a required item is missing for a given stage or examiner, that request routes back here: Sync it if it exists in Founder-OS, or flag it for Founder-OS to produce.
 
+**Audit is the shared gap source of truth.** diligence-ops does not recompute gaps; it runs or consumes this skill's Audit (against the relevant stage) as the authoritative punch-list, then layers audience and sensitivity on top. Keep Audit output stable and stage-named so diligence-ops can rely on it. If diligence-ops surfaces a discrepancy, treat the Audit as canonical and reconcile here rather than letting the two skills diverge.
+
 ## The handoff from knowledge-custodian
 
 knowledge-custodian organizes the raw files on disk and Drive. If Sync encounters a chaotic or ambiguous source (deliverables scattered, no clear "final"), it may recommend a knowledge-custodian Scan/Advise pass on that source, but dataroom-ops does not reorganize the source filesystem itself. It reads what is there and reports what made classification hard.

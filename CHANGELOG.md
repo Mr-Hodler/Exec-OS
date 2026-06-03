@@ -6,6 +6,11 @@ All notable changes to Knowledge-Ops are documented here. The format is based on
 
 ### Changed
 - Renamed the team-architecture skill **hr-org** to **functional-hr-ops** (directory, skill name, `.skill` package, config key `functional_hr_ops`, manifests, and all cross-references in knowledge-custodian).
+- diligence-ops now **consumes the dataroom-ops Audit** as the single gap source of truth (against the relevant stage) instead of recomputing gaps, layering only audience and sensitivity on top. Keeps the library and the delivery counter from diverging on completeness.
+
+### Added (visual outputs and example)
+- functional-hr-ops **visual outputs** (`references/visual-outputs.md`): render the Organization Model as an org chart, team-interaction map, cross-team flows, mind map, and RACI, and assemble an onboarding/training pack in HTML (default), PDF, or PPT, generated from the model so picture and model never drift.
+- A worked **example** under `examples/helvetia-robotics-sim/`: a simulated Swiss seed company with a deterministic generator (`build_sim.py`), artifacts for all four skills, an HTML onboarding pack, and a `VERIFICATION.md` (13/13 automated checks: action-plan reversibility, hash dedup, org-model schema, single-Accountable RACI, bidirectional placement consistency, canonical folders, restricted hard-block, no em dashes).
 
 ### Added
 - functional-hr-ops **Org Rollout** mode (fifth mode): a phased implementation roadmap (pilot, scale, optimize) with entry criteria, checklists, owners, a communication and risk plan, and a success-metrics catalog with baselines and targets (team health, velocity, cycle time, blocking cross-team dependencies, deployment frequency, discipline-community participation).

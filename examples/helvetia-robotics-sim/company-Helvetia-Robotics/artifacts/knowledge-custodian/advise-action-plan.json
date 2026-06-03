@@ -1,0 +1,61 @@
+{
+  "plan_version": "1",
+  "generated": "2026-06-02T15:00:00Z",
+  "scope_root": "company-Helvetia-Robotics/Documents",
+  "archive_root": "company-Helvetia-Robotics/Documents/_archive",
+  "batches": [
+    {
+      "id": "b1",
+      "label": "Archive exact duplicate budget",
+      "requires_confirmation": false,
+      "operations": [
+        {
+          "op": "archive",
+          "source": "Documents/financials/2025 budget copy.xlsx",
+          "destination": "Documents/_archive/2026-06-02T1500/financials/2025 budget copy.xlsx",
+          "reason": "exact_duplicate_of:Documents/financials/2025 budget.xlsx",
+          "reverse": {
+            "op": "move",
+            "source": "Documents/_archive/2026-06-02T1500/financials/2025 budget copy.xlsx",
+            "destination": "Documents/financials/2025 budget copy.xlsx"
+          },
+          "provider": "local",
+          "sensitivity_note": "confidential"
+        }
+      ]
+    },
+    {
+      "id": "b2",
+      "label": "Refile misfiled and siloed assets",
+      "requires_confirmation": false,
+      "operations": [
+        {
+          "op": "move",
+          "source": "Documents/misc/cap table.xlsx",
+          "destination": "Documents/08_Cap_Table/cap_table.xlsx",
+          "reason": "misfiled: cap table belongs in 08_Cap_Table",
+          "reverse": {
+            "op": "move",
+            "source": "Documents/08_Cap_Table/cap_table.xlsx",
+            "destination": "Documents/misc/cap table.xlsx"
+          },
+          "provider": "local",
+          "sensitivity_note": "restricted"
+        },
+        {
+          "op": "move",
+          "source": "Documents/Downloads_dump/RoboPick_hero_render_FINAL.png",
+          "destination": "Documents/marketing/design/RoboPick_hero_render.png",
+          "reason": "siloed marketing design asset; Organization-Model maps Marketing/Design -> marketing/design/",
+          "reverse": {
+            "op": "move",
+            "source": "Documents/marketing/design/RoboPick_hero_render.png",
+            "destination": "Documents/Downloads_dump/RoboPick_hero_render_FINAL.png"
+          },
+          "provider": "local",
+          "sensitivity_note": null
+        }
+      ]
+    }
+  ]
+}

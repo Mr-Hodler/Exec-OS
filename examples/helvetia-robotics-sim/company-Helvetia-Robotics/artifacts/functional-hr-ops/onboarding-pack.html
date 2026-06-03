@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Helvetia Robotics AG - Org Onboarding Pack</title>
+<style>
+  :root{
+    --bg:#0f1419; --panel:#171e26; --ink:#e8edf2; --muted:#9fb0c0;
+    --line:#2b3947; --accent:#4fd1c5; --accent2:#7aa2f7; --warn:#f6b26b;
+    --green:#7bd88f; --chip:#1f2a35;
+    --r:14px; --pad:22px;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.55;}
+  .wrap{max-width:1040px;margin:0 auto;padding:40px 22px 80px;}
+  header.top{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:28px;}
+  .kicker{color:var(--accent);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:12px;}
+  h1{font-size:30px;margin:8px 0 6px;}
+  h2{font-size:20px;margin:38px 0 4px;border-left:3px solid var(--accent);padding-left:12px;}
+  .sub{color:var(--muted);font-size:14px;}
+  p{color:var(--ink);}
+  .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+  .chip{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:12.5px;color:var(--muted);}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:var(--pad);margin-top:16px;}
+  .lead{color:var(--muted);font-size:14.5px;margin:6px 0 0;}
+  table{width:100%;border-collapse:collapse;margin-top:12px;font-size:13.5px;}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em;}
+  .A{color:var(--accent);font-weight:700;}
+  .legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px;font-size:12.5px;color:var(--muted);}
+  .legend span b{color:var(--ink);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  ul{margin:8px 0 0;padding-left:18px;color:var(--ink);} li{margin:3px 0;}
+  .foot{margin-top:40px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:16px;}
+  svg{width:100%;height:auto;display:block;}
+  @media (max-width:760px){.grid2{grid-template-columns:1fr;}}
+  @media print{
+    :root{--bg:#fff;--panel:#fff;--ink:#11151a;--muted:#475569;--line:#cbd5e1;--chip:#f1f5f9;}
+    body{background:#fff;} .card{break-inside:avoid;} h2{break-after:avoid;}
+    .noprint{display:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="kicker">Onboarding and Training Pack</div>
+    <h1>Helvetia Robotics AG</h1>
+    <div class="sub">How we are organized, how we work together, and who decides what. Generated from Organization-Model.md.</div>
+    <div class="meta">
+      <span class="chip">Stage: seed</span>
+      <span class="chip">Scale tier: small (~12 people)</span>
+      <span class="chip">Operating model: lean + stream-aligned</span>
+      <span class="chip">Sites: Zurich, Remote-EU</span>
+      <span class="chip">Model v1 - 2026-06-02</span>
+    </div>
+    <p class="noprint sub" style="margin-top:14px;">Tip: use your browser's Print to save this as a PDF.</p>
+  </header>
+
+  <h2>Who we are: org chart</h2>
+  <p class="lead">Reporting structure. Solid lines are delivery reporting. Headcount in brackets.</p>
+  <div class="card">
+    <svg viewBox="0 0 980 360" role="img" aria-label="Org chart">
+      <style>
+        .box{fill:#1f2a35;stroke:#2b3947;stroke-width:1.5;rx:10;}
+        .ceo{fill:#13313a;stroke:#4fd1c5;}
+        .t{fill:#e8edf2;font:600 14px var(--font,sans-serif);}
+        .r{fill:#9fb0c0;font:12px var(--font,sans-serif);}
+        .ln{stroke:#3a4a5a;stroke-width:1.6;fill:none;}
+      </style>
+      <!-- CEO -->
+      <rect class="box ceo" x="410" y="20" width="160" height="56" rx="10"/>
+      <text class="t" x="490" y="44" text-anchor="middle">CEO / Founder</text>
+      <text class="r" x="490" y="62" text-anchor="middle">accountable: company</text>
+      <!-- connectors -->
+      <path class="ln" d="M490,76 L490,110 M120,110 L860,110 M120,110 L120,150 M370,110 L370,150 M610,110 L610,150 M860,110 L860,150"/>
+      <!-- teams -->
+      <g>
+        <rect class="box" x="40" y="150" width="200" height="74" rx="10"/>
+        <text class="t" x="140" y="180" text-anchor="middle">Product &amp; Design [2]</text>
+        <text class="r" x="140" y="200" text-anchor="middle">owner: Head of Product</text>
+        <text class="r" x="140" y="216" text-anchor="middle">roadmap, design system</text>
+      </g>
+      <g>
+        <rect class="box" x="290" y="150" width="200" height="74" rx="10"/>
+        <text class="t" x="390" y="180" text-anchor="middle">Engineering [5]</text>
+        <text class="r" x="390" y="200" text-anchor="middle">owner: Eng Lead</text>
+        <text class="r" x="390" y="216" text-anchor="middle">build &amp; ship RoboPick</text>
+      </g>
+      <g>
+        <rect class="box" x="530" y="150" width="200" height="74" rx="10"/>
+        <text class="t" x="630" y="180" text-anchor="middle">Go-to-Market [2]</text>
+        <text class="r" x="630" y="200" text-anchor="middle">owner: Commercial Lead</text>
+        <text class="r" x="630" y="216" text-anchor="middle">pipeline &amp; revenue</text>
+      </g>
+      <g>
+        <rect class="box" x="770" y="150" width="200" height="74" rx="10"/>
+        <text class="t" x="870" y="180" text-anchor="middle">Ops &amp; Finance [2]</text>
+        <text class="r" x="870" y="200" text-anchor="middle">owner: COO</text>
+        <text class="r" x="870" y="216" text-anchor="middle">runway, close, people</text>
+      </g>
+      <!-- product alignment note -->
+      <path class="ln" stroke-dasharray="5 5" d="M140,224 L140,260 L390,260 L390,224"/>
+      <text class="r" x="265" y="278" text-anchor="middle">stream-aligned to RoboPick (collaboration)</text>
+    </svg>
+  </div>
+
+  <h2>How we work together: team interaction map</h2>
+  <p class="lead">More useful than the chart: it shows how work actually flows.</p>
+  <div class="card">
+    <svg viewBox="0 0 980 300" role="img" aria-label="Interaction map">
+      <style>
+        .node{fill:#1f2a35;stroke:#2b3947;stroke-width:1.5;}
+        .nt{fill:#e8edf2;font:600 13px sans-serif;}
+        .edge{stroke:#7aa2f7;stroke-width:2;fill:none;}
+        .edge2{stroke:#7bd88f;stroke-width:2;fill:none;stroke-dasharray:6 5;}
+        .el{fill:#9fb0c0;font:11.5px sans-serif;}
+      </style>
+      <circle class="node" cx="250" cy="90" r="58"/>
+      <text class="nt" x="250" y="86" text-anchor="middle">Product</text>
+      <text class="nt" x="250" y="104" text-anchor="middle">&amp; Design</text>
+      <circle class="node" cx="650" cy="90" r="58"/>
+      <text class="nt" x="650" y="94" text-anchor="middle">Engineering</text>
+      <circle class="node" cx="250" cy="240" r="58"/>
+      <text class="nt" x="250" y="244" text-anchor="middle">Go-to-Market</text>
+      <circle class="node" cx="650" cy="240" r="58"/>
+      <text class="nt" x="650" y="236" text-anchor="middle">Ops &amp;</text>
+      <text class="nt" x="650" y="252" text-anchor="middle">Finance</text>
+      <!-- edges -->
+      <path class="edge" d="M308,90 L592,90"/>
+      <text class="el" x="450" y="80" text-anchor="middle">collaboration (weekly)</text>
+      <path class="edge2" d="M250,148 L250,182"/>
+      <text class="el" x="262" y="168">as-a-service: roadmap intake (monthly)</text>
+      <path class="edge2" d="M650,148 L650,182"/>
+      <text class="el" x="662" y="168">as-a-service: finance ops</text>
+      <path class="edge2" d="M308,240 L592,240"/>
+      <text class="el" x="450" y="230" text-anchor="middle">as-a-service</text>
+      <g class="legend-svg">
+        <line class="edge" x1="40" y1="285" x2="70" y2="285"/><text class="el" x="78" y="289">collaboration</text>
+        <line class="edge2" x1="200" y1="285" x2="230" y2="285"/><text class="el" x="238" y="289">X-as-a-service</text>
+      </g>
+    </svg>
+  </div>
+
+  <h2>One glance: company mind map</h2>
+  <div class="card">
+    <svg viewBox="0 0 980 320" role="img" aria-label="Mind map">
+      <style>
+        .core{fill:#13313a;stroke:#4fd1c5;stroke-width:2;}
+        .ct{fill:#e8edf2;font:700 14px sans-serif;}
+        .branch{stroke:#3a4a5a;stroke-width:1.6;fill:none;}
+        .lf{fill:#1f2a35;stroke:#2b3947;stroke-width:1.2;}
+        .lt{fill:#cdd9e5;font:12px sans-serif;}
+      </style>
+      <ellipse class="core" cx="490" cy="160" rx="92" ry="40"/>
+      <text class="ct" x="490" y="156" text-anchor="middle">Helvetia</text>
+      <text class="ct" x="490" y="174" text-anchor="middle">Robotics</text>
+      <!-- branches -->
+      <path class="branch" d="M404,140 C320,90 250,80 180,70"/>
+      <path class="branch" d="M404,180 C320,230 250,240 180,250"/>
+      <path class="branch" d="M576,140 C660,90 730,80 800,70"/>
+      <path class="branch" d="M576,180 C660,230 730,240 800,250"/>
+      <g><rect class="lf" x="40" y="48" width="160" height="44" rx="9"/><text class="lt" x="120" y="66" text-anchor="middle">Product &amp; Design</text><text class="lt" x="120" y="82" text-anchor="middle">roadmap, UX</text></g>
+      <g><rect class="lf" x="40" y="228" width="160" height="44" rx="9"/><text class="lt" x="120" y="246" text-anchor="middle">Go-to-Market</text><text class="lt" x="120" y="262" text-anchor="middle">pipeline, revenue</text></g>
+      <g><rect class="lf" x="780" y="48" width="170" height="44" rx="9"/><text class="lt" x="865" y="66" text-anchor="middle">Engineering</text><text class="lt" x="865" y="82" text-anchor="middle">build, ship, quality</text></g>
+      <g><rect class="lf" x="780" y="228" width="170" height="44" rx="9"/><text class="lt" x="865" y="246" text-anchor="middle">Ops &amp; Finance</text><text class="lt" x="865" y="262" text-anchor="middle">runway, close, people</text></g>
+    </svg>
+  </div>
+
+  <h2>Who decides what: RACI</h2>
+  <p class="lead">Exactly one Accountable per decision. R responsible, C consulted, I informed.</p>
+  <div class="card">
+    <table>
+      <thead><tr><th>Decision</th><th>Head of Product</th><th>Eng Lead</th><th>CEO</th><th>COO</th></tr></thead>
+      <tbody>
+        <tr><td>Set product priorities</td><td class="A">A / R</td><td>C</td><td>I</td><td>I</td></tr>
+        <tr><td>Release to production</td><td>C</td><td class="A">A / R</td><td>I</td><td>I</td></tr>
+        <tr><td>Approve a hire</td><td>R</td><td>R</td><td class="A">A</td><td>C</td></tr>
+        <tr><td>Set a salary</td><td>I</td><td>I</td><td class="A">A</td><td>R</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <h2>Cross-team operations</h2>
+      <div class="card">
+        <ul>
+          <li><b>Release</b> - owner Eng Lead, weekly, lead-time 1 day. Escalation: Eng Lead, then CEO.</li>
+          <li><b>Quarterly planning</b> - owner Head of Product, all teams, 60% bottom-up.</li>
+          <li><b>Monthly close</b> - owner COO.</li>
+          <li><b>Roadmap intake (GTM to Product)</b> - as-a-service queue, monthly.</li>
+        </ul>
+      </div>
+      <h2>How we work</h2>
+      <div class="card">
+        <ul>
+          <li>Engineering: hybrid, anchor day Tuesday.</li>
+          <li>Ops &amp; Finance: onsite Zurich.</li>
+          <li>Remote-EU engineers: async-first, decisions written down.</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h2>Where things live</h2>
+      <div class="card">
+        <p class="lead">The information architecture mirrors this org (managed by knowledge-custodian).</p>
+        <ul>
+          <li>Product &amp; Design assets -> <b>product/</b> and <b>marketing/design/</b></li>
+          <li>Engineering -> <b>engineering/</b></li>
+          <li>Go-to-Market -> <b>sales/</b> and <b>marketing/</b></li>
+          <li>Ops &amp; Finance -> <b>finance/</b> and <b>people/</b></li>
+          <li>All-hands material -> <b>company/</b></li>
+        </ul>
+        <p class="lead">Every active area has exactly one owning team. No ownerless folders.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    Helvetia Robotics AG (simulated). Generated by functional-hr-ops from Organization-Model.md v1, 2026-06-02.
+    Structure and roles only: no compensation, performance, or personal data in this pack.
+  </div>
+</div>
+</body>
+</html>
