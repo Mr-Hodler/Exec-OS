@@ -1,4 +1,4 @@
-# diligence-ops - Access log
+# investor-ops - Access log
 
 | recipient | org | process | granted | sensitivity | NDA | overrides | when | authorized_by |
 |-----------|-----|---------|---------|-------------|-----|-----------|------|---------------|

@@ -65,6 +65,16 @@ Classify each discipline and set its lead's scope:
 - **Allocation rule:** service disciplines allocate full-time or not at all; never fractional. If demand is partial, use an as-a-service interface with a queue.
 - **Lead scope:** BU-scoped, department-scoped, or company-wide, chosen by company size and span of control (split a lead's scope when reports exceed about 15 to 20).
 
+Discipline-lead scalability by company size (a guide, not a rule):
+
+| Company size | Discipline lead scope | Shape |
+| --- | --- | --- |
+| Small (under ~50) | Company-wide | One lead per discipline covers everyone; often a player-coach who still does the work. |
+| Medium (~50 to 400) | Department-scoped | A lead per discipline per department as headcount passes span-of-control limits. |
+| Large (400+) | BU-scoped, under a company-wide head | Leads per business unit, with a company-wide head of the discipline setting the standard. |
+
+Split a discipline lead's scope the moment their direct reports pass roughly 15 to 20, regardless of size band.
+
 ## RACI decision matrix (standard output)
 
 Produce a matrix of the key recurring decisions by role, with exactly one **Accountable** per decision (plus Responsible, Consulted, Informed as needed). Typical decisions: set product priorities, release to production, resolve a cross-team dependency, set a salary, approve a hire, set craft standards, approve budget. The rule that prevents matrix paralysis: one Accountable per decision, always.

@@ -53,6 +53,26 @@ Four team types and three interaction modes, organized around fast flow and cogn
 
 Pairs naturally with two-pizza and stream-aligned product lines, and is the most actionable frame for team boundaries and interfaces.
 
+### Context not control (the "Netflix" archetype)
+Lead with context, not control: give teams the information, strategy, and guardrails to decide well, and push decisions to the people closest to the work. High autonomy, low process. Requires unusually high talent density and clarity of strategy, so it fits a senior team more than a junior one. Adopt the principle (context over approval gates) even in other models; adopt the full high-autonomy version only when talent density genuinely supports it.
+
+### Foundation governance
+A foundation or non-profit entity holds a mission, standard, or protocol, with an operating company alongside it. Common where neutrality or public-good governance matters (open source, protocols, crypto). It is a governance layer above the org, not a team model: pair it with one of the team models below for how work actually gets done. Ties to the legal-entity layer and to the crypto sector overlay.
+
+## What to adopt, what to leave
+
+Borrow the mechanism that fits your context; leave the parts that assume a scale or culture you do not have.
+
+| Model | Adopt | Leave |
+| --- | --- | --- |
+| Functional (Apple) | Deep craft ownership, single functional accountability | Full functional org if you are small or multi-product (cross-functional delivery stalls) |
+| Divisional | Autonomy and accountability per line | Duplication and weak shared standards when lines are not truly distinct |
+| Matrix (Google) | Dual strength on function and product | Dual reporting without one clear Accountable per decision |
+| Spotify | Autonomy plus craft alignment (chapters/guilds) | The labels and the org-chart cargo-culting; it was aspirational |
+| Two-pizza (Amazon) | Small single-owner teams, working backwards | Small teams without the platform investment that unblocks them |
+| Context not control (Netflix) | Context over approval gates, decisions at the edge | Low-process autonomy without high talent density |
+| Team Topologies | Team types, interaction modes, cognitive-load limits | Nothing major; it is the default frame |
+
 ## Choosing by fit
 
 - **Stage / size.** Under ~15: lean/flat. 15 to ~50: functional or a few stream-aligned teams. 50+: introduce product/divisional lines, platform and enabling teams; consider tribes/BUs only when teams are numerous enough to need coordination owners.

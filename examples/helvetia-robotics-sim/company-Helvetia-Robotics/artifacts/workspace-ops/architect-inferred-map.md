@@ -1,4 +1,4 @@
-# knowledge-custodian - Architect inferred functional map
+# workspace-ops - Architect inferred functional map
 
 Read-only. De-facto structure inferred from the file topology (hypothesis, not fact).
 

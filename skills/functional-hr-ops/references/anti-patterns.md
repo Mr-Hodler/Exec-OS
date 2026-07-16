@@ -28,6 +28,27 @@ Divisional/autonomous-team models are fashionable, but the functional org is cor
 
 When you do recommend divisional/autonomous teams over functional, say why the duplication is acceptable (speed and ownership outweigh the redundancy), so the trade-off is explicit rather than hidden.
 
+## Key patterns (do this)
+
+The positive counterpart. A healthy design tends to show these:
+
+- **Stable, long-lived teams** that own a domain or value stream (not project churn).
+- **One Accountable per decision**, made explicit in a RACI.
+- **Clear ownership with an explicit "not responsible for"** on every role, so gaps and overlaps are visible.
+- **As-a-service interfaces by default**, collaboration only for genuine discovery.
+- **A platform or enabling team** to absorb shared load once several teams depend on the same thing.
+- **Layers added by trigger** (span of control, cognitive load), not by default; the smallest org that works.
+- **Context over control:** teams have the strategy and guardrails to decide at the edge.
+
+## Healthy tension: entrepreneur and professor
+
+A well-run matrix runs on a deliberate, healthy tension between two archetypes, and the design should preserve it rather than resolve it to one side:
+
+- The **delivery owner (the "entrepreneur")** pushes for speed, focus, and shipping the next outcome.
+- The **discipline lead (the "professor")** protects craft quality, standards, and long-term sustainability.
+
+Both perspectives are required; a team that only has the entrepreneur ships fast and accrues debt, one that only has the professor perfects and stalls. Encode the tension in the dual reporting and the RACI (delivery owns priorities and release, the discipline lead owns craft standards and craft hiring), so the two negotiate as designed rather than one silently overruling the other.
+
 ## How to use this list
 
-In Org Design and Team Ops, check the proposed structure against each anti-pattern, and for any that applies, either remove it or state explicitly why this case is the justified exception. Never ship a design that trips an anti-pattern silently.
+In Org Design and Team Ops, check the proposed structure against each anti-pattern, confirm the key patterns are present, and for any anti-pattern that applies, either remove it or state explicitly why this case is the justified exception. Never ship a design that trips an anti-pattern silently.

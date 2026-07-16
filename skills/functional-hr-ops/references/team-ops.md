@@ -30,6 +30,16 @@ Common cross-team operations to specify: release, incident response, planning, g
 
 Service-discipline intake deserves special care: route demand through an as-a-service queue with lead-times, never through fractional per-quarter allocation.
 
+## Cross-function integration patterns
+
+How a discipline (design, marketing, data, security) serves delivery teams. Pick the pattern per discipline by how much shared standard the work needs versus how embedded it must be. These are the concrete shapes behind the interaction modes above.
+
+- **Central squad plus embedded.** A central discipline team owns the shared standard (a design system, a brand system, a data platform); individuals are embedded in delivery squads and pull from it, contributing back through the central team. Best when consistency and reuse matter a lot (design systems, brand). Interaction mode: as-a-service for the standard, collaboration for the embedded work.
+- **Lead plus allocation.** A discipline lead owns craft and standards and allocates specialists to teams full-time (never fractional). Best for embedded disciplines at medium scale (backend, QA) where craft quality needs an owner but the work lives inside product teams. Interaction mode: facilitating (standards) plus embedded delivery.
+- **Service-oriented.** The discipline runs as an internal service with a request queue, intake, and lead-times, serving many teams (legal, finance, some data or security work). Best when demand is spiky and the discipline cannot embed everywhere. Interaction mode: X-as-a-service.
+
+State the chosen pattern per discipline in the Organization Model, so a new hire knows how to get design, data, or legal help. Avoid the fractional-allocation trap: if a service discipline is spread thinly across many teams at low percentages, move it to the service-oriented queue instead.
+
 ## Friction diagnosis
 
 Use workspace-ops's friction evidence (silos, cross-team duplication, ownerless areas, single-person bottlenecks, access mismatches) plus the org model. For each friction, name the structural or operational cause:

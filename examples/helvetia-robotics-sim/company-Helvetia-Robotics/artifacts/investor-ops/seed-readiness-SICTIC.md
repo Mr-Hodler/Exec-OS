@@ -1,4 +1,4 @@
-# diligence-ops - Fundraise Data Room Prep (stage: seed, profile: SICTIC)
+# investor-ops - Fundraise Data Room Prep (stage: seed, profile: SICTIC)
 
 Readiness is stated relative to the named checklist (SICTIC seed).
 
@@ -8,7 +8,7 @@ Readiness is stated relative to the named checklist (SICTIC seed).
 3. Team (05): THIN.
 4. Financial situation (02): PRESENT (plan, budget, burn).
 5. Customers / traction (07, 09): PRESENT.
-6. IP, data protection, security (04): MISSING -> BLOCKER (route to dataroom-ops / Founder-OS).
+6. IP, data protection, security (04): MISSING -> BLOCKER (route to investor-ops / Founder-OS).
 7. Software development and production (06): THIN.
 
 ## Access view (investor, NDA)

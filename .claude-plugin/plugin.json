@@ -1,6 +1,6 @@
 {
   "name": "exec-os",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Horizontal, cross-company operations layer for founders and COO-shaped operators. Three skills: investor-ops (build and maintain the canonical data room from founder-os outputs, find and reach investors via sourcing, fit scoring, outreach and pipeline/CRM, and package everything for any third party under scrutiny: fundraise, due diligence, board, audit, M&A), workspace-ops (organize files and workspaces and infer the de-facto org, advice-only in v1.0), functional-hr-ops (design team and org structure, plan workforce, run hiring, roll out org change). Swiss venture context, stage-adaptive (seed to M&A).",
   "author": {
     "name": "Aron Clementi"

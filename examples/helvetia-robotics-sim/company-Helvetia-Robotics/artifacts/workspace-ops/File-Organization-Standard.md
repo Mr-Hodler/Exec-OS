@@ -9,7 +9,7 @@ Derived from observed good patterns plus best practice. Baseline template: funct
 
 ## Folder taxonomy (company)
 
-Top level by functional area, mirroring the Organization Model: product, engineering, marketing (with design), sales, finance, people, legal, and a referenced data room area (owned by dataroom-ops).
+Top level by functional area, mirroring the Organization Model: product, engineering, marketing (with design), sales, finance, people, legal, and a referenced data room area (owned by investor-ops).
 
 ## Active vs archive
 

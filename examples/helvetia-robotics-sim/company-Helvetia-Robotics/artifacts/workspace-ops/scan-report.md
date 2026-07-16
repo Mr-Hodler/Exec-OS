@@ -1,4 +1,4 @@
-# knowledge-custodian - Scan report
+# workspace-ops - Scan report
 
 Company: Helvetia Robotics AG   Provider: local filesystem   Mode: Scan (read-only)
 

@@ -5,14 +5,14 @@
   },
   "metadata": {
     "description": "Exec-OS marketplace: the horizontal, cross-company operations layer that sits above founder-os. Investor and capital lifecycle (data room, sourcing and outreach, due diligence, board, audit, M&A), plus file and workspace custody and org design.",
-    "version": "0.5.1"
+    "version": "0.5.2"
   },
   "plugins": [
     {
       "name": "exec-os",
       "source": "./",
       "description": "Cross-company OPS suite. Three skills: investor-ops (build and maintain the canonical data room from founder-os outputs, find and reach investors via sourcing, fit scoring, outreach and pipeline/CRM, and package everything for any third party under scrutiny: fundraise, due diligence, board, audit, M&A), workspace-ops (organize files and workspaces and infer the de-facto org, advice-only in v1.0), functional-hr-ops (design team and org structure, plan workforce, run hiring, roll out org change).",
-      "version": "0.5.1",
+      "version": "0.5.2",
       "author": {
         "name": "Aron Clementi"
       },

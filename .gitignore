@@ -17,8 +17,8 @@ _snapshots/
 _archive/
 *.undo.log
 
-# Local config overrides (the committed .knowledge-ops-config.yml is a template)
-.knowledge-ops-config.local.yml
+# Local config overrides (the committed .exec-os-config.yml is a template)
+.exec-os-config.local.yml
 
 # Node / tooling (if added later)
 node_modules/

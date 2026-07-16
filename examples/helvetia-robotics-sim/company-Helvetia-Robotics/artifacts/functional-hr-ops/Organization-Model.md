@@ -49,7 +49,7 @@ operating_model: lean with stream-aligned teams (principle: two-pizza, Tuckman s
 - GTM <-> Product: interaction_mode as-a-service (roadmap intake); cadence monthly.
 - Cross-team ops: release: owner Eng Lead, cadence weekly, lead_time 1 day, escalation_path Eng Lead -> CEO.
 
-## Information-architecture mapping (for knowledge-custodian)
+## Information-architecture mapping (for workspace-ops)
 - Product & Design -> product/ and marketing/design/ (shared design assets under marketing/design/)
 - Engineering -> engineering/
 - Go-to-Market -> sales/ and marketing/

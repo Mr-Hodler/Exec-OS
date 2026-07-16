@@ -2,6 +2,21 @@
 
 All notable changes to Exec-OS are documented here. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.2] - 2026-07-16
+
+### Added (functional-hr-ops, from the Corporate Organization Theory reference)
+- **Two operating models:** Netflix "context not control" (context over approval gates, decisions at the edge; needs high talent density) and "foundation governance" (a foundation/non-profit holding a mission or protocol alongside an operating company; ties to the legal-entity layer and the crypto sector overlay).
+- **"What to adopt, what to leave" table** in `operating-models.md`: per model, the mechanism to borrow and the part to leave behind, so recommendations cite the fit rather than cargo-culting an org chart.
+- **Cross-function integration patterns** in `team-ops.md`: central-squad-plus-embedded, lead-plus-allocation, and service-oriented, the three concrete shapes for how a discipline serves delivery, each mapped to an interaction mode, with the fractional-allocation trap called out.
+- **Key patterns (positive) list** and the **entrepreneur-and-professor healthy-tension archetype** in `anti-patterns.md`: the delivery owner (speed) and the discipline lead (craft) are meant to negotiate through dual reporting and the RACI, not for one to overrule the other.
+- **Discipline-lead scalability table** (small/medium/large) in `org-design.md`, complementing the span-of-control split trigger.
+
+### Fixed
+- `.gitignore` now ignores `.exec-os-config.local.yml` (was still `.knowledge-ops-config.local.yml` after the Exec-OS rename, so the local-override pattern would not have applied).
+
+### Changed (example refresh)
+- Regenerated `examples/helvetia-robotics-sim/` to Exec-OS naming (investor-ops / workspace-ops / `.exec-os-config`), added the sector-overlay demonstration (hardware + ai, applied additively over the base), and refreshed the HTML onboarding pack. The deterministic `build_sim.py` verification passes 14/14.
+
 ## [0.5.1] - 2026-07-15
 
 ### Fixed

@@ -5,7 +5,7 @@ Knowledge-Ops simulated end-to-end test.
 Builds a fake Swiss seed-stage company, then generates the artifacts each of the
 four skills would produce, applying their documented rules. A verification pass
 checks the artifacts for internal consistency, schema compliance, the no-em-dash
-rule, and the bidirectional knowledge-custodian <-> functional-hr-ops contract.
+rule, and the bidirectional workspace-ops <-> functional-hr-ops contract.
 
 Run: python3 build_sim.py
 """
@@ -16,7 +16,7 @@ CO = os.path.join(ROOT, "company-Helvetia-Robotics")
 DOCS = os.path.join(CO, "Documents")
 FOS = os.path.join(CO, "founder-os-outputs")          # simulated linked founder-os /outputs
 ART = os.path.join(CO, "artifacts")
-DR = os.path.join(ART, "data-room")                    # dataroom-ops canonical tree
+DR = os.path.join(ART, "investor-ops", "data-room")                    # investor-ops canonical tree
 
 def w(path, content):
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -28,7 +28,7 @@ def touch(path, content="x"):
     with open(path, "w") as f:
         f.write(content)
 
-# Canonical data room structure (mirrors .knowledge-ops-config.yml dataroom.canonical_structure)
+# Canonical data room structure (mirrors .exec-os-config.yml dataroom.canonical_structure)
 CANONICAL = [
     "00_Overview","01_Corporate_&_Governance","02_Financials","03_Legal_&_Compliance",
     "04_IP_Data_&_Security","05_Team_&_HR","06_Product_&_Technology","07_Market_&_Commercial",
@@ -95,12 +95,12 @@ def file_index(base):
     return idx
 
 # ---------------------------------------------------------------------------
-# 2. knowledge-custodian artifacts
+# 2. workspace-ops artifacts
 # ---------------------------------------------------------------------------
 def kc_artifacts():
     idx = file_index(DOCS)
     # scan-index.json (the incremental cache, metadata only)
-    w(os.path.join(ART, "knowledge-custodian", "_snapshots", "scan-index.json"),
+    w(os.path.join(ART, "workspace-ops", "_snapshots", "scan-index.json"),
       json.dumps({"generated": "2026-06-02", "scope_root": "company-Helvetia-Robotics/Documents",
                   "items": idx}, indent=2))
 
@@ -110,7 +110,7 @@ def kc_artifacts():
         by_hash.setdefault(it["sha256"], []).append(it["path"])
     dups = {h: ps for h, ps in by_hash.items() if len(ps) > 1}
 
-    scan = ["# knowledge-custodian - Scan report", "",
+    scan = ["# workspace-ops - Scan report", "",
             "Company: Helvetia Robotics AG   Provider: local filesystem   Mode: Scan (read-only)", "",
             f"Items inventoried: {len(idx)}", "",
             "## Hotspots", "",
@@ -123,7 +123,7 @@ def kc_artifacts():
     scan += ["", "## Near-duplicates (flagged for human judgment, never auto-merged)", "",
              "- Pitch Deck FINAL v3.pdf vs Pitch Deck FINAL v2.pdf (same intent, different bytes; v2 likely superseded)", "",
              "Scan changed nothing."]
-    w(os.path.join(ART, "knowledge-custodian", "scan-report.md"), "\n".join(scan))
+    w(os.path.join(ART, "workspace-ops", "scan-report.md"), "\n".join(scan))
 
     # Advise action plan (replayable, dry-run) - JSON schema from advise-protocol.md
     arch = os.path.join("Documents", "_archive", "2026-06-02T1500")
@@ -160,9 +160,9 @@ def kc_artifacts():
                  "provider": "local", "sensitivity_note": None}]},
         ],
     }
-    w(os.path.join(ART, "knowledge-custodian", "advise-action-plan.json"), json.dumps(plan, indent=2))
+    w(os.path.join(ART, "workspace-ops", "advise-action-plan.json"), json.dumps(plan, indent=2))
 
-    advise = ["# knowledge-custodian - Advise report", "",
+    advise = ["# workspace-ops - Advise report", "",
         "Read-only. Two artifacts: this report and advise-action-plan.json (dry-run). Nothing was changed.", "",
         "## High priority", "",
         "- Exact duplicate: financials/2025 budget copy.xlsx duplicates 2025 budget.xlsx. Action: archive the copy (never delete).",
@@ -173,7 +173,7 @@ def kc_artifacts():
         "## Low priority", "",
         "- Deep nesting Documents/a/b/c/d. Action: flatten.", "",
         "Applying the plan is Execute mode (v1.1). In v1.0 this is advice only."]
-    w(os.path.join(ART, "knowledge-custodian", "advise-report.md"), "\n".join(advise))
+    w(os.path.join(ART, "workspace-ops", "advise-report.md"), "\n".join(advise))
 
     std = ["# File-Organization-Standard (Helvetia Robotics) - v1", "",
         "Derived from observed good patterns plus best practice. Baseline template: function-first.", "",
@@ -181,13 +181,13 @@ def kc_artifacts():
         "- Lowercase, hyphen or underscore separators, no spaces.",
         "- ISO dates YYYY-MM-DD. Explicit version suffix -vN, never final_REAL.", "",
         "## Folder taxonomy (company)", "",
-        "Top level by functional area, mirroring the Organization Model: product, engineering, marketing (with design), sales, finance, people, legal, and a referenced data room area (owned by dataroom-ops).", "",
+        "Top level by functional area, mirroring the Organization Model: product, engineering, marketing (with design), sales, finance, people, legal, and a referenced data room area (owned by investor-ops).", "",
         "## Active vs archive", "",
         "- Superseded material moves to _archive/<timestamp>/, never deleted.", "",
         "Version 1. 2026-06-02."]
-    w(os.path.join(ART, "knowledge-custodian", "File-Organization-Standard.md"), "\n".join(std))
+    w(os.path.join(ART, "workspace-ops", "File-Organization-Standard.md"), "\n".join(std))
 
-    arch_map = ["# knowledge-custodian - Architect inferred functional map", "",
+    arch_map = ["# workspace-ops - Architect inferred functional map", "",
         "Read-only. De-facto structure inferred from the file topology (hypothesis, not fact).", "",
         "## Inferred functional areas (with evidence, confidence)", "",
         "- Product and design: pitch deck and RoboPick render edited by 2 people. Confidence: medium.",
@@ -201,7 +201,7 @@ def kc_artifacts():
         "- Finance and ops operate as one de-facto unit today; confirm intended structure.",
         "- Design capacity is thin (shared with product); possible hiring signal.", "",
         "If Organization-Model.md exists, it takes precedence over this inferred map."]
-    w(os.path.join(ART, "knowledge-custodian", "architect-inferred-map.md"), "\n".join(arch_map))
+    w(os.path.join(ART, "workspace-ops", "architect-inferred-map.md"), "\n".join(arch_map))
     return dups
 
 # ---------------------------------------------------------------------------
@@ -259,7 +259,7 @@ operating_model: lean with stream-aligned teams (principle: two-pizza, Tuckman s
 - GTM <-> Product: interaction_mode as-a-service (roadmap intake); cadence monthly.
 - Cross-team ops: release: owner Eng Lead, cadence weekly, lead_time 1 day, escalation_path Eng Lead -> CEO.
 
-## Information-architecture mapping (for knowledge-custodian)
+## Information-architecture mapping (for workspace-ops)
 - Product & Design -> product/ and marketing/design/ (shared design assets under marketing/design/)
 - Engineering -> engineering/
 - Go-to-Market -> sales/ and marketing/
@@ -352,13 +352,13 @@ Deliverable: stabilized org, updated Organization Model.
     w(os.path.join(ART, "functional-hr-ops", "org-rollout.md"), rollout)
 
 # ---------------------------------------------------------------------------
-# 4. dataroom-ops artifacts
+# 4. investor-ops artifacts
 # ---------------------------------------------------------------------------
 def dataroom_artifacts():
     # Bootstrap: canonical folder tree with a .gitkeep-like marker
     for folder in CANONICAL:
         touch(os.path.join(DR, folder, "_index.md"), f"# {folder}\n")
-    # 99 trackers placeholders (created by Bootstrap for diligence-ops)
+    # 99 trackers placeholders (created by Bootstrap for investor-ops)
     for sub in ["QA_Tracker", "Evidence_Index", "Access_Log"]:
         touch(os.path.join(DR, "99_DD_QA_&_Trackers", sub, "_placeholder.md"), f"# {sub}\n")
     # Sector overlays (additive over base) for this company's company_type
@@ -374,7 +374,7 @@ def dataroom_artifacts():
         ["", "## Overlay subfolders (additive)"] + [f"- {s}" for s in overlay_subs]
     w(os.path.join(DR, "index.md"), "\n".join(index))
 
-    sync = """# dataroom-ops - Sync manifest
+    sync = """# investor-ops - Sync manifest
 
 Source: linked founder-os repo (company-Helvetia-Robotics/founder-os-outputs/outputs). Mode: hybrid (index all, copy finals).
 
@@ -394,9 +394,9 @@ Source: linked founder-os repo (company-Helvetia-Robotics/founder-os-outputs/out
 ## Skipped / Flagged
 - (none)
 """
-    w(os.path.join(ART, "data-room", "sync-manifest.md"), sync)
+    w(os.path.join(ART, "investor-ops", "data-room", "sync-manifest.md"), sync)
 
-    audit = """# dataroom-ops - Audit report (yardstick: seed / SICTIC + hardware, ai overlays)
+    audit = """# investor-ops - Audit report (yardstick: seed / SICTIC + hardware, ai overlays)
 
 ## Gaps (vs seed profile)
 - BLOCKER: 04_IP_Data_&_Security empty - IP ownership / assignment chain missing (SICTIC requires this at seed).
@@ -418,15 +418,15 @@ Source: linked founder-os repo (company-Helvetia-Robotics/founder-os-outputs/out
 ## Sensitivity sanity
 - All synced items tagged. Note: cap table is restricted; keep out of investor view by default.
 
-Readiness: seed-ready except 2 blockers (IP assignment, cap table). Route both to dataroom-ops Sync / Founder-OS.
+Readiness: seed-ready except 2 blockers (IP assignment, cap table). Route both to investor-ops Sync / Founder-OS.
 """
-    w(os.path.join(ART, "data-room", "audit-report.md"), audit)
+    w(os.path.join(ART, "investor-ops", "data-room", "audit-report.md"), audit)
 
 # ---------------------------------------------------------------------------
-# 5. diligence-ops artifacts
+# 5. investor-ops artifacts
 # ---------------------------------------------------------------------------
 def diligence_artifacts():
-    readiness = """# diligence-ops - Fundraise Data Room Prep (stage: seed, profile: SICTIC)
+    readiness = """# investor-ops - Fundraise Data Room Prep (stage: seed, profile: SICTIC)
 
 Readiness is stated relative to the named checklist (SICTIC seed).
 
@@ -436,7 +436,7 @@ Readiness is stated relative to the named checklist (SICTIC seed).
 3. Team (05): THIN.
 4. Financial situation (02): PRESENT (plan, budget, burn).
 5. Customers / traction (07, 09): PRESENT.
-6. IP, data protection, security (04): MISSING -> BLOCKER (route to dataroom-ops / Founder-OS).
+6. IP, data protection, security (04): MISSING -> BLOCKER (route to investor-ops / Founder-OS).
 7. Software development and production (06): THIN.
 
 ## Access view (investor, NDA)
@@ -445,9 +445,9 @@ Readiness is stated relative to the named checklist (SICTIC seed).
 
 Verdict: seed-ready except 1 blocker (IP ownership) and 2 thin areas (statutes, team).
 """
-    w(os.path.join(ART, "diligence-ops", "seed-readiness-SICTIC.md"), readiness)
+    w(os.path.join(ART, "investor-ops", "seed-readiness-SICTIC.md"), readiness)
 
-    qa = """# diligence-ops - Due Diligence Q&A tracker
+    qa = """# investor-ops - Due Diligence Q&A tracker
 
 | id | area | question | status | evidence (folder | item | version) | sensitivity | owner |
 |----|------|----------|--------|------------------|------|---------|-------------|-------|
@@ -456,11 +456,11 @@ Verdict: seed-ready except 1 blocker (IP ownership) and 2 thin areas (statutes, 
 | 3 | corporate | Cap table and SHA? | partial | 08 | cap_table.xlsx (pending sync) | restricted | CEO |
 | 4 | commercial | Market size and pipeline? | answered | 07_Market_&_Commercial | market-report.md | 1.0 | confidential | Commercial Lead |
 
-Snapshot: financial DD answered; legal DD blocked on IP assignment (routed to dataroom-ops / Founder-OS). Restricted evidence hard-blocked from the investor view.
+Snapshot: financial DD answered; legal DD blocked on IP assignment (routed to investor-ops / Founder-OS). Restricted evidence hard-blocked from the investor view.
 """
-    w(os.path.join(ART, "diligence-ops", "dd-qa-tracker.md"), qa)
+    w(os.path.join(ART, "investor-ops", "dd-qa-tracker.md"), qa)
 
-    access = """# diligence-ops - Access log
+    access = """# investor-ops - Access log
 
 | recipient | org | process | granted | sensitivity | NDA | overrides | when | authorized_by |
 |-----------|-----|---------|---------|-------------|-----|-----------|------|---------------|
@@ -468,7 +468,7 @@ Snapshot: financial DD answered; legal DD blocked on IP assignment (routed to da
 
 No restricted item disclosed. Cap table (restricted) withheld pending explicit, logged override.
 """
-    w(os.path.join(ART, "diligence-ops", "access-log.md"), access)
+    w(os.path.join(ART, "investor-ops", "access-log.md"), access)
 
 # ---------------------------------------------------------------------------
 # VERIFICATION
@@ -479,7 +479,7 @@ def verify(dups):
         results.append((name, ok, detail))
 
     # 1. action plan parses, only move/archive, every op has reverse, no delete verb
-    planp = os.path.join(ART, "knowledge-custodian", "advise-action-plan.json")
+    planp = os.path.join(ART, "workspace-ops", "advise-action-plan.json")
     plan = json.load(open(planp))
     ops = [o for b in plan["batches"] for o in b["operations"]]
     verbs = {o["op"] for o in ops}
@@ -527,18 +527,18 @@ def verify(dups):
     check("dataroom: sector overlays (hardware+ai) applied additively, base intact",
           overlay_ok and base_intact, f"{len(expected_overlay)} overlay subfolders over {len(CANONICAL)} base")
 
-    # 7. trackers placeholders exist for diligence-ops handoff
+    # 7. trackers placeholders exist for investor-ops handoff
     trackers = os.path.join(DR, "99_DD_QA_&_Trackers")
-    check("dataroom: 99 trackers scaffolded for diligence-ops",
+    check("dataroom: 99 trackers scaffolded for investor-ops",
           all(os.path.isdir(os.path.join(trackers, s)) for s in ["QA_Tracker", "Evidence_Index", "Access_Log"]))
 
     # 8. diligence readiness names the stage/checklist
-    rd = open(os.path.join(ART, "diligence-ops", "seed-readiness-SICTIC.md")).read()
+    rd = open(os.path.join(ART, "investor-ops", "seed-readiness-SICTIC.md")).read()
     check("diligence: readiness names the stage and checklist (seed / SICTIC)",
           "seed" in rd.lower() and "SICTIC" in rd)
 
     # 9. diligence hard-block: restricted not in the granted access view
-    al = open(os.path.join(ART, "diligence-ops", "access-log.md")).read()
+    al = open(os.path.join(ART, "investor-ops", "access-log.md")).read()
     check("diligence: no restricted item disclosed in access log",
           "No restricted item disclosed" in al)
 
@@ -561,7 +561,7 @@ def main():
     diligence_artifacts()
     results = verify(dups)
 
-    lines = ["# Knowledge-Ops simulated test - VERIFICATION", "",
+    lines = ["# Exec-OS simulated test - VERIFICATION", "",
              "Company: Helvetia Robotics AG (Swiss, seed). Generated artifacts for all four skills.", "",
              "| # | check | result | detail |", "|---|-------|--------|--------|"]
     npass = 0

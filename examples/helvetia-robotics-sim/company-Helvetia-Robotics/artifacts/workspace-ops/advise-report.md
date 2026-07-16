@@ -1,4 +1,4 @@
-# knowledge-custodian - Advise report
+# workspace-ops - Advise report
 
 Read-only. Two artifacts: this report and advise-action-plan.json (dry-run). Nothing was changed.
 

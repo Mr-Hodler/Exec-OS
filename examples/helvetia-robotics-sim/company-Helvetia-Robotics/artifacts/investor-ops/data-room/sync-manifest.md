@@ -1,4 +1,4 @@
-# dataroom-ops - Sync manifest
+# investor-ops - Sync manifest
 
 Source: linked founder-os repo (company-Helvetia-Robotics/founder-os-outputs/outputs). Mode: hybrid (index all, copy finals).
 

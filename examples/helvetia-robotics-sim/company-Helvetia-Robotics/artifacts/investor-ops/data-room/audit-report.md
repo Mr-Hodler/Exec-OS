@@ -1,4 +1,4 @@
-# dataroom-ops - Audit report (yardstick: seed / SICTIC + hardware, ai overlays)
+# investor-ops - Audit report (yardstick: seed / SICTIC + hardware, ai overlays)
 
 ## Gaps (vs seed profile)
 - BLOCKER: 04_IP_Data_&_Security empty - IP ownership / assignment chain missing (SICTIC requires this at seed).
@@ -20,4 +20,4 @@
 ## Sensitivity sanity
 - All synced items tagged. Note: cap table is restricted; keep out of investor view by default.
 
-Readiness: seed-ready except 2 blockers (IP assignment, cap table). Route both to dataroom-ops Sync / Founder-OS.
+Readiness: seed-ready except 2 blockers (IP assignment, cap table). Route both to investor-ops Sync / Founder-OS.
