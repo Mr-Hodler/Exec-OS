@@ -1,6 +1,8 @@
 # Exec-OS
 
-The **horizontal operations layer** for founders and COO-shaped operators. Where [Founder-OS](https://github.com/Mr-Hodler/founder-os) runs the strategic verticals of a *single* company (validation, market intel, GTM, branding, business model, legal), Exec-OS runs the *cross-company* operations that sit **above** any one venture: assembling a clean data room, surviving due diligence, reporting to a board, and keeping the underlying files and workspaces in order.
+**Your AI executive team.** Where [Founder-OS](https://github.com/Mr-Hodler/founder-os) is the founder/CEO's strategic brain for building *one* company, Exec-OS is the executive team that *runs* it: the CFO who raises capital and handles the data room and due diligence, the COO who keeps files and operations in order, and the Chief People Officer who designs the team and runs hiring. It works across every company you run, not just one.
+
+> Written for founders and C-level, not engineers. Read it in plain language. The one-time technical setup is at the very end.
 
 It is built for the operator who manages several companies or projects at once and needs the same standard applied everywhere, not the founder who lives inside one product.
 
@@ -33,7 +35,7 @@ The bet: a founder plus a small, empowered team, each amplified by an AI that ow
 
 ## Why a separate repo
 
-Founder-OS is company-scoped: one chat, one company, one strategy. Exec-OS is meta-level: one chat, your whole portfolio. Keeping them apart buys scope cleanliness, a smaller attack surface for Founder-OS, a clear mental model (strategy vs operations), and the ability to standardize across companies. Exec-OS *consumes* Founder-OS outputs; it never duplicates its strategy work.
+Founder-OS is company-scoped: one chat, one company, one strategy. Exec-OS is meta-level: one chat, your whole portfolio. Keeping them apart keeps each one simple and focused, gives a clear mental model (strategy vs execution), lets each stay lean, and lets you apply the same standard across every company you run. Exec-OS *consumes* Founder-OS outputs; it never duplicates its strategy work.
 
 ## The skills
 
