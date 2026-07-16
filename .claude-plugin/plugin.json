@@ -1,12 +1,12 @@
 {
-  "name": "knowledge-ops",
-  "version": "0.3.0",
-  "description": "Horizontal, cross-company operations layer for founders and COO-shaped operators. Builds and maintains a canonical data room from founder-os outputs (dataroom-ops), packages it for any third party under scrutiny - investors, due diligence, board, audit (diligence-ops), keeps the underlying files and workspaces organized and infers the de-facto org from them (knowledge-custodian), and designs team and org structure, plans workforce, runs hiring, and rolls out org change (functional-hr-ops). Swiss venture context, stage-adaptive (seed to M&A).",
+  "name": "exec-os",
+  "version": "0.5.1",
+  "description": "Horizontal, cross-company operations layer for founders and COO-shaped operators. Three skills: investor-ops (build and maintain the canonical data room from founder-os outputs, find and reach investors via sourcing, fit scoring, outreach and pipeline/CRM, and package everything for any third party under scrutiny: fundraise, due diligence, board, audit, M&A), workspace-ops (organize files and workspaces and infer the de-facto org, advice-only in v1.0), functional-hr-ops (design team and org structure, plan workforce, run hiring, roll out org change). Swiss venture context, stage-adaptive (seed to M&A).",
   "author": {
     "name": "Aron Clementi"
   },
-  "homepage": "https://github.com/Mr-Hodler/Knowledge-Ops",
-  "repository": "https://github.com/Mr-Hodler/Knowledge-Ops",
+  "homepage": "https://github.com/Mr-Hodler/Exec-OS",
+  "repository": "https://github.com/Mr-Hodler/Exec-OS",
   "license": "MIT",
   "keywords": [
     "data-room",

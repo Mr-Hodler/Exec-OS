@@ -1,14 +1,14 @@
 # Org design method
 
-Design the organization across four dimensions at once, grounded in the de-facto map from knowledge-custodian and the company strategy, scaled to the company's size. The output is the Organization Model.
+Design the organization across four dimensions at once, grounded in the de-facto map from workspace-ops and the company strategy, scaled to the company's size. The output is the Organization Model.
 
 ## Inputs
 
-- **De-facto functional map** (knowledge-custodian Architect): how the company actually works today, with confidence and evidence. The strongest starting point.
+- **De-facto functional map** (workspace-ops Architect): how the company actually works today, with confidence and evidence. The strongest starting point.
 - **Strategy and product structure** (Founder-OS): where the company is going and what it builds.
 - **Stage, headcount, sites, work modes, legal entities** (config and the user).
 
-If the de-facto map is missing, offer to run knowledge-custodian first, or proceed from the user's description and label the design as not yet evidence-grounded.
+If the de-facto map is missing, offer to run workspace-ops first, or proceed from the user's description and label the design as not yet evidence-grounded.
 
 ## Scale tiers and layer decision gates
 
@@ -75,4 +75,4 @@ State the current de-facto structure, the target, and the gap. Recommend the sma
 
 ## Output
 
-Update `Organization-Model.md` (schema in `organization-model.md`) with the four dimensions, scale tier, roles with non-ownership, reporting lines, the RACI matrix, rituals, and any legal entities. Deliver an org chart and a team-interaction map (visuals if allowed), the rationale with cited principles and trade-offs, transition notes, and the explicit handoff to knowledge-custodian so the information architecture follows the org (for example marketing design assets under `marketing/design/`, a product team's specs under that team's area). Check the design against `anti-patterns.md` before delivering.
+Update `Organization-Model.md` (schema in `organization-model.md`) with the four dimensions, scale tier, roles with non-ownership, reporting lines, the RACI matrix, rituals, and any legal entities. Deliver an org chart and a team-interaction map (visuals if allowed), the rationale with cited principles and trade-offs, transition notes, and the explicit handoff to workspace-ops so the information architecture follows the org (for example marketing design assets under `marketing/design/`, a product team's specs under that team's area). Check the design against `anti-patterns.md` before delivering.

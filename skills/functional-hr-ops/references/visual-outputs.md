@@ -27,7 +27,7 @@ Assemble the visuals plus orientation text into one artifact aimed at a new hire
 - Who we are and how we are organized (org chart).
 - How teams work together (interaction map and cross-team operations).
 - Who decides what (RACI, in plain language).
-- Where things live (the information-architecture mapping, the bridge to knowledge-custodian: "marketing design assets live under marketing/design/").
+- Where things live (the information-architecture mapping, the bridge to workspace-ops: "marketing design assets live under marketing/design/").
 - How we work (work modes, rituals, anchor days).
 
 Keep it honest and current; a stale org chart is worse than none. Stamp it with the Organization Model version and date so a reader knows how fresh it is.

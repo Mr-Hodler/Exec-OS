@@ -33,4 +33,4 @@ Present metrics as a table: metric, why it matters for this change, baseline, ta
 
 ## Living source of truth
 
-Treat `Organization-Model.md` as a living document: update it at each phase, record status and learnings, and keep ownership and last-modified clear. The org structure (here) and the information structure (knowledge-custodian, which consumes the model) stay aligned as the rollout proceeds.
+Treat `Organization-Model.md` as a living document: update it at each phase, record status and learnings, and keep ownership and last-modified clear. The org structure (here) and the information structure (workspace-ops, which consumes the model) stay aligned as the rollout proceeds.

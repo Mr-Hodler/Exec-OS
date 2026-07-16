@@ -32,7 +32,7 @@ Service-discipline intake deserves special care: route demand through an as-a-se
 
 ## Friction diagnosis
 
-Use knowledge-custodian's friction evidence (silos, cross-team duplication, ownerless areas, single-person bottlenecks, access mismatches) plus the org model. For each friction, name the structural or operational cause:
+Use workspace-ops's friction evidence (silos, cross-team duplication, ownerless areas, single-person bottlenecks, access mismatches) plus the org model. For each friction, name the structural or operational cause:
 
 - **Silo:** no shared interface or space; fix with an interaction mode and a shared area.
 - **Duplication across teams:** unclear ownership; fix with a single owner and an as-a-service interface.
@@ -44,4 +44,4 @@ Never attribute a structural friction to an individual's performance. The skill 
 
 ## Performance levers
 
-Propose levers, each with the expected effect: clearer single ownership, fewer hand-offs, right-sized teams, an explicit interaction mode, a platform or enabling team where load is high, an owned cadence and intake for a cross-team operation. Prioritize by impact and effort. Structural changes route back to Org Design and, where information should follow, to knowledge-custodian.
+Propose levers, each with the expected effect: clearer single ownership, fewer hand-offs, right-sized teams, an explicit interaction mode, a platform or enabling team where load is high, an owned cadence and intake for a cross-team operation. Prioritize by impact and effort. Structural changes route back to Org Design and, where information should follow, to workspace-ops.

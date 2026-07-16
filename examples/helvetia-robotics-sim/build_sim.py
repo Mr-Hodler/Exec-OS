@@ -35,6 +35,26 @@ CANONICAL = [
     "08_Cap_Table_&_Financing","09_Traction_&_Metrics","99_DD_QA_&_Trackers",
 ]
 
+# Helvetia Robotics: warehouse robotics with AI picking -> combined hardware + ai overlays
+COMPANY_TYPE = ["hardware", "ai"]
+OVERLAYS = {
+    "saas": ["06_Product_&_Technology/Multi-tenancy_&_Architecture","06_Product_&_Technology/SLA_&_Uptime",
+             "04_IP_Data_&_Security/SOC2_ISO","04_IP_Data_&_Security/Data_Processing_&_Subprocessors",
+             "09_Traction_&_Metrics/SaaS_Metrics"],
+    "hardware": ["06_Product_&_Technology/BOM_&_Suppliers","06_Product_&_Technology/Manufacturing_&_CM",
+                 "06_Product_&_Technology/Hardware_QA_&_Testing","06_Product_&_Technology/Certifications",
+                 "04_IP_Data_&_Security/Patents_&_FTO","02_Financials/Inventory_&_COGS"],
+    "crypto": ["03_Legal_&_Compliance/Token_Legal_Opinion","03_Legal_&_Compliance/Regulatory_MiCA_FINMA",
+               "04_IP_Data_&_Security/Smart_Contract_Audits","04_IP_Data_&_Security/Custody_&_Key_Management",
+               "08_Cap_Table_&_Financing/Tokenomics_&_Token_Cap_Table","02_Financials/Treasury_On-chain"],
+    "fintech": ["03_Legal_&_Compliance/Licenses_&_Authorizations","03_Legal_&_Compliance/Regulatory_Compliance",
+                "03_Legal_&_Compliance/Banking_Partners","03_Legal_&_Compliance/Client_Funds_Safeguarding",
+                "04_IP_Data_&_Security/AML_KYC"],
+    "ai": ["06_Product_&_Technology/Models_&_Training_Data","06_Product_&_Technology/MLOps_&_Evaluation",
+           "04_IP_Data_&_Security/Data_Rights_&_Licensing","04_IP_Data_&_Security/Model_Governance_&_Safety",
+           "04_IP_Data_&_Security/AI_Regulatory","03_Legal_&_Compliance/Third-party_Models_&_APIs"],
+}
+
 # ---------------------------------------------------------------------------
 # 1. SIMULATED INPUT: a messy company filesystem
 # ---------------------------------------------------------------------------
@@ -341,10 +361,17 @@ def dataroom_artifacts():
     # 99 trackers placeholders (created by Bootstrap for diligence-ops)
     for sub in ["QA_Tracker", "Evidence_Index", "Access_Log"]:
         touch(os.path.join(DR, "99_DD_QA_&_Trackers", sub, "_placeholder.md"), f"# {sub}\n")
+    # Sector overlays (additive over base) for this company's company_type
+    overlay_subs = []
+    for t in COMPANY_TYPE:
+        for sub in OVERLAYS[t]:
+            touch(os.path.join(DR, sub, "_index.md"), f"# {sub} (overlay: {t})\n")
+            overlay_subs.append(sub)
 
     index = ["# Helvetia Robotics - Data Room (canonical)", "",
-        "Platform: local (simulated). Stage profile: seed. Last synced: 2026-06-02.", "",
-        "## Folders"] + [f"- {f}" for f in CANONICAL]
+        f"Platform: local (simulated). Stage profile: seed. Sector overlays: {', '.join(COMPANY_TYPE)}. Last synced: 2026-06-02.", "",
+        "## Base folders (SICTIC / venture-CH)"] + [f"- {f}" for f in CANONICAL] + \
+        ["", "## Overlay subfolders (additive)"] + [f"- {s}" for s in overlay_subs]
     w(os.path.join(DR, "index.md"), "\n".join(index))
 
     sync = """# dataroom-ops - Sync manifest
@@ -369,12 +396,18 @@ Source: linked founder-os repo (company-Helvetia-Robotics/founder-os-outputs/out
 """
     w(os.path.join(ART, "data-room", "sync-manifest.md"), sync)
 
-    audit = """# dataroom-ops - Audit report (yardstick: seed / SICTIC)
+    audit = """# dataroom-ops - Audit report (yardstick: seed / SICTIC + hardware, ai overlays)
 
 ## Gaps (vs seed profile)
 - BLOCKER: 04_IP_Data_&_Security empty - IP ownership / assignment chain missing (SICTIC requires this at seed).
 - BLOCKER: 08_Cap_Table_&_Financing empty - cap table not in the room (exists in Documents/misc, route to Sync after refile).
 - SHOULD-FIX: 05_Team_&_HR thin - founder bios only.
+
+## Gaps (vs sector overlays)
+- hardware: BOM_&_Suppliers and Certifications empty - no bill of materials or CE/UL status yet.
+- hardware: Patents_&_FTO empty - freedom-to-operate not documented.
+- ai: Models_&_Training_Data and Data_Rights_&_Licensing empty - training-data provenance/licenses missing.
+- ai: AI_Regulatory empty - EU AI Act risk classification not done.
 
 ## Stale
 - (none; data room freshly synced)
@@ -484,6 +517,15 @@ def verify(dups):
     present = sorted(d for d in os.listdir(DR) if os.path.isdir(os.path.join(DR, d)))
     check("dataroom: canonical folders match config", present == sorted(CANONICAL),
           f"{len(present)} folders")
+
+    # 6b. sector overlays applied additively over the base (hardware + ai), base intact
+    expected_overlay = []
+    for t in COMPANY_TYPE:
+        expected_overlay += OVERLAYS[t]
+    overlay_ok = all(os.path.isdir(os.path.join(DR, s)) for s in expected_overlay)
+    base_intact = all(os.path.isdir(os.path.join(DR, b)) for b in CANONICAL)
+    check("dataroom: sector overlays (hardware+ai) applied additively, base intact",
+          overlay_ok and base_intact, f"{len(expected_overlay)} overlay subfolders over {len(CANONICAL)} base")
 
     # 7. trackers placeholders exist for diligence-ops handoff
     trackers = os.path.join(DR, "99_DD_QA_&_Trackers")
